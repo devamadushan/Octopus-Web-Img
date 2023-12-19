@@ -1,20 +1,30 @@
 from flask import Flask
+from flask_restful import Resource, Api, reqparse, abort
+
+'''
+-pip insall falsk
+-pip install flask_restful
+'''
 
 app = Flask(__name__)
-
+api = Api(app)
 ecolabs = {
-    "ecolab1": {"temperature": 27, "humidity": 90, "pressure": 3},
-    "ecolab2": {"temperature": 27, "humidity": 90, "pressure": 3},
-    "ecolab3": {"temperature": 27, "humidity": 90, "pressure": 3},
-    "ecolab4": {"temperature": 27, "humidity": 90, "pressure": 3},
-    "ecolab5": {"temperature": 27, "humidity": 90, "pressure": 3}
+    1: {"temperature": 27, "humidity": 90, "pressure": 3},
+    2: {"temperature": 27, "humidity": 90, "pressure": 3},
+    3: {"temperature": 27, "humidity": 90, "pressure": 3},
+    4: {"temperature": 27, "humidity": 90, "pressure": 3},
+    5: {"temperature": 27, "humidity": 90, "pressure": 3}
 }
 
 
-@app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World!'
+class Ecolabs(Resource):
+    def get(self):
+        return ecolabs
+
+
+api.add_resource(Ecolabs, '/chp')
+
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
