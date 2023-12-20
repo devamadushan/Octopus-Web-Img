@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% if user %}
+    <p> Welcome {{ user.nom }}</p>
+{% endif %}
+
+{% for ecolab_id, ecolab in ecolabs.items() %}
+    <button><a href="ecolab/{{ ecolab_id }}">{{ ecolab['Name'] }}</a></button>
+{% endfor %}
+
+
+
+{% if user %}
+    <button><a href="deconnexion">déconnexion</a></button>
+
+{% else %}
+    <button><a href="/connexion">connexion</a></button>
+    <button><a href="/inscription">inscription</a></button>
+{% endif %}
+
+</body>
+</html>
