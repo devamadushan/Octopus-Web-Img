@@ -1,11 +1,6 @@
 from flask import Flask, render_template, request, jsonify, url_for
 import requests
 
-
-
-
-
-app = Flask(__name__)
 ecolabs = {
 
         "ecolab_2": {
@@ -58,6 +53,12 @@ ecolabs = {
 
     }
 
+
+
+
+app = Flask(__name__)
+
+
 # country = input("lr nom de la vile :")
 
 
@@ -71,11 +72,10 @@ ecolabs = {
 
 @app.route('/')
 def index():
-
-     
     # try:
     #     api_lien = "http://10.119.20.100:8080/"
-    #     json_data = requests.get(api_lien).json()   
+    #     json_data = requests.get(api_lien).json()
+       
     #     return render_template('index.html', info=json_data)
     # except Exception as e:
     #     print(f"Une erreur s'est produite : {e}")
@@ -107,4 +107,4 @@ def index():
 #     return render_template('rechercheParPays.html', info=json_data)
 
 if __name__ == '__main__':
-    app.run(host="",port=3000,debug=True)
+    app.run(host="",port=4000,debug=True)
