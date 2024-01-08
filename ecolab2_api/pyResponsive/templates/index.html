@@ -230,13 +230,41 @@
         }
         .message p {
     line-height: 1;
-}
-    </style>
+        }
+    .connexion{
+        background-color: rgb(68, 192, 241);
+        color: white;
+        padding: 9px;
+        border-radius: 10px;
+        text-align: right;
+        
+    }
+    .button{
+        text-align: right;
+        width: 90%;
+        margin-bottom: -6px;
+        margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
+    {% if role == "visiteur" %}
+<div class="button">
+   <a href="connexion" > <button class="connexion">Connexion</button></a>
+</div>
+
+{% endif %}
+
+{% if role != "visiteur" %}
+<div class="button">
+   <a href="deconnexion" > <button class="connexion">Deconnexion</button></a>
+</div>
+
+{% endif %}
+
 
     <ul class="flex-container">
-
+ 
         <div class="L1">
 
         <div class="BLOCK-EC">

@@ -1,5 +1,13 @@
-from flask import Flask, render_template, request, jsonify, url_for
+from flask import Flask, render_template, request, jsonify, url_for, redirect
+import json
 import requests
+
+
+
+with open('config.json', 'r') as config:
+    config = json.load(config)
+    IP = config['IP']
+    print(IP)
 
 # ecolabs = {
 
@@ -73,14 +81,46 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     try:
+        role = request.args.get('role', default='visiteur')  # Récupérer le rôle depuis la requête, par défaut 'utilisateur'
         api_lien = "http://10.119.20.100:8080/"
         json_data = requests.get(api_lien).json()
        
-        return render_template('index.html', info=json_data)
+        return render_template('index.html', info=json_data,role= role)
     except Exception as e:
         print(f"Une erreur s'est produite : {e}")
         return "Erreur lors de la récupération des données depuis l'API."
     
+
+
+@app.route('/connexion')
+def forms():
+    return render_template('connexion.php')
+
+@app.route('/traitement', methods=['POST'])
+def traitement():
+    print("yesss")
+    
+    login = request.form.get('login')
+    mdp = request.form.get('password')
+
+    print(login,mdp)
+    if (login=="deva" and mdp=="sio"):
+        return redirect(url_for('index', role='admin'))
+    else:
+        return redirect(url_for('index', role='utilisateur'))
+    
+
+@app.route('/deconnexion')
+def deconnexion():
+    return redirect(url_for('index', role='visiteur'))
+
+
+
+
+
+
+
+
 
 # @app.route('/pays')
 # def pays():
