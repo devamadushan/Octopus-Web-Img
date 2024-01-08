@@ -13,7 +13,7 @@
             padding: 0;
             margin: 0;
             list-style: none;
-            height: 50vh;
+           
             
         }
         .flex-container > div{
@@ -112,8 +112,10 @@
 
         .L1{
             width: 100%;
-            padding: 50px;
+            
             text-align: center;
+          
+            
         }
         .L1 > div  {
             display: inline-block;
@@ -263,24 +265,24 @@
         <li class="flex-item E4C3">
             <div class="message" id="message3">
                 <h5>{{ info['ecolab_2']['Cellule_3']['name'] }}</h5>
-                <p>Temperature Reprise : {{ info['ecolab_2']['Cellule_3']['params']['temperature_reprise'] }}</p>
-                <p>Temperature Eau Pluie : {{ info['ecolab_2']['Cellule_3']['params']['temperature_eau_pluie'] }}</p>
-                <p>Temperature Consigne : {{ info['ecolab_2']['Cellule_3']['params']['temperature_consigne'] }}</p>
+                <p>Temperature Reprise : {{ info['ecolab_2']['Cellule_3']['params']['temperature_reprise'] | round }}</p>
+                <p>Temperature Eau Pluie : {{ info['ecolab_2']['Cellule_3']['params']['temperature_eau_pluie']| round  }}</p>
+                <p>Temperature Consigne : {{ info['ecolab_2']['Cellule_3']['params']['temperature_consigne']| round }}</p>
             </div>
         </li>
         <li class="flex-item E4C2">
             <div class="message" id="message2">
                 <h5>{{ info['ecolab_2']['Cellule_2']['name'] }}</h5>
-                <p>Temp Reprise : {{ info['ecolab_2']['Cellule_2']['params']['temperature_reprise'] }}</p>
-                <p>Temperature Eau Pluie : {{ info['ecolab_2']['Cellule_2']['params']['temperature_eau_pluie'] }}</p>
-                <p>Temperature Consigne : {{ info['ecolab_2']['Cellule_2']['params']['temperature_consigne'] }}</p>
+                <p>Temp Reprise : {{ info['ecolab_2']['Cellule_2']['params']['temperature_reprise']| round  }}</p>
+                <p>Temperature Eau Pluie : {{ info['ecolab_2']['Cellule_2']['params']['temperature_eau_pluie'] | round }}</p>
+                <p>Temperature Consigne : {{ info['ecolab_2']['Cellule_2']['params']['temperature_consigne'] | round }}</p>
             </div>
         </li>
         <li class="flex-item E4C1"><div class="message" id="message1">
             <h5>{{ info['ecolab_2']['Cellule_1']['name'] }}</h5>
-            <p>Temp Reprise : {{ info['ecolab_2']['Cellule_1']['params']['temperature_reprise'] }}</p>
-            <p>Temperature Eau Pluie : {{ info['ecolab_2']['Cellule_1']['params']['temperature_eau_pluie'] }}</p>
-            <p>Temperature Consigne : {{ info['ecolab_2']['Cellule_1']['params']['temperature_consigne'] }}</p>
+            <p>Temp Reprise : {{ info['ecolab_2']['Cellule_1']['params']['temperature_reprise'] | round }}</p>
+            <p>Temperature Eau Pluie : {{ info['ecolab_2']['Cellule_1']['params']['temperature_eau_pluie'] | round }}</p>
+            <p>Temperature Consigne : {{ info['ecolab_2']['Cellule_1']['params']['temperature_consigne'] | round }}</p>
         </div></li>
         <p class="label1">Ecolab 2</p>
         <li class="flex-item E4O3"></li>

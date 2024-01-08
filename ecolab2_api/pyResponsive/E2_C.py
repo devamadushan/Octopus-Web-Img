@@ -1,57 +1,57 @@
 from flask import Flask, render_template, request, jsonify, url_for
 import requests
 
-ecolabs = {
+# ecolabs = {
 
-        "ecolab_2": {
-            'Cellule_1': {
-                "name": "E2C1",
-                "fins": {
-                    "ip": "192.168.0.21",
-                    "port": 9600,
-                    "dst_net_addr": 2,
-                    "dst_node_num": 2,
-                    "dst_unit_addr": 0
-                },
-                "params": {
-                    "temperature_reprise": 10,
-                    "temperature_eau_pluie": 15,
-                    "temperature_consigne": 0
-                }
-            },
-            'Cellule_2':{
-                    "name": "E2C2",
-                    "fins": {
-                        "ip": "192.168.0.2",
-                        "port": 9600,
-                        "dst_net_addr": 1,
-                        "dst_node_num": 1,
-                        "dst_unit_addr": 0
-                    },
-                    "params": {
-                        "temperature_reprise": 11,
-                        "temperature_eau_pluie": 16,
-                        "temperature_consigne": 0
-                    }
-            },
-            'Cellule_3':{
-                    "name": "E2C3",
-                    "fins": {
-                        "ip": "192.168.0.3",
-                        "port": 9600,
-                        "dst_net_addr": 1,
-                        "dst_node_num": 1,
-                        "dst_unit_addr": 0
-                    },
-                    "params": {
-                        "temperature_reprise": 12,
-                        "temperature_eau_pluie": 17,
-                        "temperature_consigne": 0
-                    }
-            }
-        }
+#         "ecolab_2": {
+#             'Cellule_1': {
+#                 "name": "E2C1",
+#                 "fins": {
+#                     "ip": "192.168.0.21",
+#                     "port": 9600,
+#                     "dst_net_addr": 2,
+#                     "dst_node_num": 2,
+#                     "dst_unit_addr": 0
+#                 },
+#                 "params": {
+#                     "temperature_reprise": 10,
+#                     "temperature_eau_pluie": 15,
+#                     "temperature_consigne": 0
+#                 }
+#             },
+#             'Cellule_2':{
+#                     "name": "E2C2",
+#                     "fins": {
+#                         "ip": "192.168.0.2",
+#                         "port": 9600,
+#                         "dst_net_addr": 1,
+#                         "dst_node_num": 1,
+#                         "dst_unit_addr": 0
+#                     },
+#                     "params": {
+#                         "temperature_reprise": 11,
+#                         "temperature_eau_pluie": 16,
+#                         "temperature_consigne": 0
+#                     }
+#             },
+#             'Cellule_3':{
+#                     "name": "E2C3",
+#                     "fins": {
+#                         "ip": "192.168.0.3",
+#                         "port": 9600,
+#                         "dst_net_addr": 1,
+#                         "dst_node_num": 1,
+#                         "dst_unit_addr": 0
+#                     },
+#                     "params": {
+#                         "temperature_reprise": 12,
+#                         "temperature_eau_pluie": 17,
+#                         "temperature_consigne": 0
+#                     }
+#             }
+#         }
 
-    }
+#     }
 
 
 
@@ -72,15 +72,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # try:
-    #     api_lien = "http://10.119.20.100:8080/"
-    #     json_data = requests.get(api_lien).json()
+    try:
+        api_lien = "http://10.119.20.100:8080/"
+        json_data = requests.get(api_lien).json()
        
-    #     return render_template('index.html', info=json_data)
-    # except Exception as e:
-    #     print(f"Une erreur s'est produite : {e}")
-    #     return "Erreur lors de la récupération des données depuis l'API."
-    return render_template('index.html', info=ecolabs)
+        return render_template('index.html', info=json_data)
+    except Exception as e:
+        print(f"Une erreur s'est produite : {e}")
+        return "Erreur lors de la récupération des données depuis l'API."
+    
 
 # @app.route('/pays')
 # def pays():
