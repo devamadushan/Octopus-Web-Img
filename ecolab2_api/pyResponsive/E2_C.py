@@ -1,3 +1,11 @@
+'''
+pip install flask
+pip install json
+pip instal requests
+
+'''
+
+
 from flask import Flask, render_template, request, jsonify, url_for, redirect
 import json
 import requests
@@ -6,8 +14,9 @@ import requests
 
 with open('config.json', 'r') as config:
     config = json.load(config)
-    IP = config['IP']
-    print(IP)
+ip = config['IP']
+port = config['Port']
+debug = config['Debug']
 
 # ecolabs = {
 
@@ -62,26 +71,14 @@ with open('config.json', 'r') as config:
 #     }
 
 
-
+role = "visiteur"
 
 app = Flask(__name__)
 
-
-# country = input("lr nom de la vile :")
-
-
-# try:
-#
-#     print(json)
-#     print(json['name']['official'])
-# except Exception as e:
-#     print(f"Une erreur s'est produite : {e}")
-
-
 @app.route('/')
 def index():
+    global role
     try:
-        role = request.args.get('role', default='visiteur')  # Récupérer le rôle depuis la requête, par défaut 'utilisateur'
         api_lien = "http://10.119.20.100:8080/"
         json_data = requests.get(api_lien).json()
        
@@ -91,13 +88,13 @@ def index():
         return "Erreur lors de la récupération des données depuis l'API."
     
 
-
 @app.route('/connexion')
 def forms():
-    return render_template('connexion.php')
+    return render_template('connexion.html',ip=ip, port=port)
 
 @app.route('/traitement', methods=['POST'])
 def traitement():
+    global role
     print("yesss")
     
     login = request.form.get('login')
@@ -105,46 +102,18 @@ def traitement():
 
     print(login,mdp)
     if (login=="deva" and mdp=="sio"):
-        return redirect(url_for('index', role='admin'))
+        role="admin"
+        return redirect(url_for('index'))
     else:
-        return redirect(url_for('index', role='utilisateur'))
+        role="utilisateur"
+        return redirect(url_for('index'))
     
 
 @app.route('/deconnexion')
 def deconnexion():
-    return redirect(url_for('index', role='visiteur'))
-
-
-
-
-
-
-
-
-
-# @app.route('/pays')
-# def pays():
-#     api_lien = "https://restcountries.com/v3.1/all"
-#     json_data = requests.get(api_lien).json()
-#     return render_template('lesPays.html', info=json_data)
-
-
-# @app.route('/rechercher', methods=['POST'])
-# def rechercher():
-#     recherche = request.form['recherchePays']
-#     api_lien = f"https://restcountries.com/v3.1/name/{recherche}"
-#     json_data = requests.get(api_lien).json()
-#     print(json_data)
-#     return render_template('rechercheParPays.html', info=json_data)
-
-# @app.route('/rechercher/<nom>')
-# def rechercherpays(nom):
-
-#     api_lien = f"https://restcountries.com/v3.1/name/{nom}"
-#     json_data = requests.get(api_lien).json()
-#     print(nom)
-#     print(json_data)
-#     return render_template('rechercheParPays.html', info=json_data)
+    global role
+    role='visiteur'
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(host="",port=4000,debug=True)
+    app.run(host=ip,port=port,debug=debug)
