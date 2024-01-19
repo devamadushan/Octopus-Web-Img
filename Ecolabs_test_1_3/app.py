@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
-from conn import ENGINE, Session
-from utilisateur import Base, Utilisateur
-from sqlalchemy import create_engine, text
+
+
 from flask_restful import Resource, Api, reqparse, abort
 import random
 import json
@@ -138,4 +137,4 @@ api.add_resource(Ecolabs, '/ecolabs')
 api.add_resource(Ecolab, '/ecolab/<id>')
 
 if __name__ == '__main__':
-    app.run(port=7000, debug=True)
+    app.run(host="10.118.10.91",port=7000, debug=True)

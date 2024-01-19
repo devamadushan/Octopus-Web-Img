@@ -107,4 +107,4 @@ def index():
 #     return render_template('rechercheParPays.html', info=json_data)
 
 if __name__ == '__main__':
-    app.run(host="",port=5000,debug=True)
+    app.run(host="10.118.10.119",port=4000,debug=True)

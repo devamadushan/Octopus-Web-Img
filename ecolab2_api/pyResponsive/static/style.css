@@ -1,0 +1,238 @@
+.flex-container {
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+   
+    
+}
+.flex-container > div{
+    text-align: center;
+}
+
+.flex-item {
+    margin-top: 10px;
+    line-height: 150px;
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+    
+}
+
+
+
+
+.E5{
+    padding: 5px;
+    width: 250px;
+    height: 230px;
+    background-color: lightblue;
+   
+}
+
+.E501{
+    padding: 5px;
+    width: 100px;
+    height: 50px;
+    background-color:  rgb(211, 70, 70);
+
+}
+.E5C1{
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(22, 216, 174);
+    margin-top: -222px;
+    margin-left: 6px;
+   
+}
+.E5C2{
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(22, 216, 174);
+    margin-top: 12px;
+    margin-left: 6px;
+}
+
+.E503{
+    padding: 5px;
+    width: 100px;
+    height: 50px;
+    background-color:  rgb(211, 70, 70);
+    margin-top: -46px;
+    margin-left: 145px;
+}
+.E5C3{
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(22, 216, 174);
+    margin-top: -102px;
+    margin-left: 145px;
+}
+ 
+.BLOCK-E5{
+   
+}
+.E5T{
+    background-color:  rgb(0, 106, 168);
+    margin-left: -0px;
+    padding: 5px;
+    width: 150px;
+    height: 70px;
+}
+.E502{
+    padding: 5px;
+    width: 100px;
+    height: 50px;
+    background-color: rgb(211, 70, 70);
+    margin-top: 22px;
+    margin-left: 1px;
+}
+
+
+
+
+
+
+
+
+
+.L1{
+    width: 100%;
+    
+    text-align: center;
+  
+    
+}
+.L1 > div  {
+    display: inline-block;
+    
+    margin: 50px;
+    overflow: hidden;
+}       
+.BLOCK-EC{
+  
+}
+.EC {
+    padding: 5px;
+    width: 250px;
+    height: 465px;
+    background-color: rgb(101, 221, 117);
+   
+    
+}
+.E2{
+    padding: 5px;
+    width: 250px;
+    height: 230px;
+    background-color: lightblue;
+    margin-top: 10%;
+}
+
+
+.E4{
+    padding: 5px;
+    width: 250px;
+    height: 230px;
+    background-color: lightblue;
+    margin-top: 10%;
+}
+.E4T{
+    margin-left: 100px;
+    padding: 5px;
+    width: 150px;
+    height: 70px;
+    background-color: rgb(0, 106, 168);
+}
+.E4O1{
+    padding: 5px;
+    width: 100px;
+    height: 50px;
+    background-color:  rgb(211, 70, 70);
+}
+
+
+
+.E4O2{
+    padding: 5px;
+    width: 100px;
+    height: 50px;
+    background-color:  rgb(211, 70, 70);
+    margin-top: -50px;
+    margin-left: 150px;
+}
+.E4O3{
+    padding: 5px;
+    width: 100px;
+    height: 50px;
+    background-color:  rgb(211, 70, 70);
+    margin-top: -42px;
+    margin-left: 150px;
+}
+.E4C3{
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(22, 216, 174);
+    margin-top: -224px;
+    margin-left: 6px;
+    
+}
+.E4C2{
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    background-color:rgb(22, 216, 174);
+    margin-top: -100px;
+    margin-left: 58%;
+}
+.E4C1{
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(22, 216, 174);
+    margin-top: 15px;
+    margin-left: 58%;
+}
+.label1{
+    
+
+    background-color: rgb(22, 177, 216);
+    margin-top: 28px;
+    margin-left: 18px;
+    width: 100px;
+}
+.label2{
+    background-color:  rgb(22, 177, 216);
+    margin-top: -30px;
+    margin-left: 120px;
+    width: 100px;
+}
+.message{
+   padding-top: 20px;
+    font-size: 7px;
+    margin: -20px;
+    
+    
+}
+.message p {
+line-height: 1;
+}
+.connexion{
+background-color: rgb(68, 192, 241);
+color: white;
+padding: 9px;
+border-radius: 10px;
+text-align: right;
+
+}
+.button{
+text-align: right;
+width: 90%;
+margin-bottom: -6px;
+margin-top: 10px;
+}

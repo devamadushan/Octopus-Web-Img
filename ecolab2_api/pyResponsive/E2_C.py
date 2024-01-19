@@ -4,19 +4,21 @@ pip install json
 pip instal requests
 
 '''
-
+############################################################################################
 
 from flask import Flask, render_template, request, jsonify, url_for, redirect
 import json
 import requests
 
-
+############################################################################################
 
 with open('config.json', 'r') as config:
     config = json.load(config)
-ip = config['IP']
-port = config['Port']
-debug = config['Debug']
+    ip = config['IP']
+    port = config['Port']
+    debug = config['Debug']
+
+############################################################################################
 
 # ecolabs = {
 
@@ -79,7 +81,7 @@ app = Flask(__name__)
 def index():
     global role
     try:
-        api_lien = "http://10.119.20.100:8080/"
+        # api_lien = "http://10.119.20.100:8080/"
         json_data = requests.get(api_lien).json()
        
         return render_template('index.html', info=json_data,role= role)

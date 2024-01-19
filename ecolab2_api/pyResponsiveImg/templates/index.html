@@ -3,107 +3,1037 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>Document</title>
+ 
     <style>
-        .container {
+        .ecolabs {
+            max-width: 100%;
+        }
+
+        .cell {
             position: relative;
         }
-
-        .E2C3, .E2C2, .E2C1 {
-            width: 5%;
-            height: auto;
-            background-color: blue;
-            margin: 20px;
-            padding: 20px;
+        /* for 1980px width */
+        .E1C3 {
             position: absolute;
+            top: 126px;
+            left: 25.5%;
+            
+            width:4%;
         }
 
-        .E2C3 {
-            top: 14%;
-            left: 20%;
+        .btnE1C3 {
+            width: 150%;
+            padding-top: 20%;
+            padding-bottom: 20%;
         }
-
-        .E2C2 {
-            top: 14%;
-            left: 40%;
-        }
-
-        .E2C1 {
-            top: 23%;
-            left: 60%;
-        }
-
-        .message {
-            display: none;
-            position: absolute;
-            width: 500%;
-            text-align: center;
-            font-size: 80%;
-            top: -10%;
-            left: -500%;
-            border-radius: 10px;
-            border: 2px solid #000;
-            padding: 3px;
-            background-color: rgb(78, 219, 207);
-            transform: translate(-50%, -50%);
-        }
-
-        .image {
+        .E1C2{
+            margin-left: 160%;
+            margin-top: -99%;
             width: 100%;
-            height: auto;
         }
-        .E3{
-            background-color: red;
-            padding: 5;
-            position: absolute;
+        .E1C1{
+            margin-left: 160%;
+            margin-top: 8%;
+            width: 100%;
+            
+           
+            
         }
+        .btnE1C1{
+            
+            
+           
+        }
+        .E3C3{
+            margin-left: 660%;
+            margin-top: -195%;
+            width: 100%;
+        }
+        .E3C2{
+            margin-left: 820%;
+            margin-top: -95%;
+            width: 100%;
+        }
+        .E3C1{
+            margin-left: 820%;
+            margin-top: 9%;
+            width: 100%;
+        }
+        .E5C3{
+            margin-left: 1320%;
+            margin-top: -203%;
+            width: 100%;
+        }
+        .E5C2{
+            margin-left: 1490%;
+            margin-top: -95%;
+            width: 100%;
+        }
+        .E5C1{
+            margin-left: 1490%;
+            margin-top: 15%;
+            width: 100%;
+        }
+        .E2C1{
+            margin-left: -5%;
+            margin-top: 310%;
+            width: 100%;
+        }
+        .E2C2{
+            margin-left: -5%;
+            margin-top: 10%;
+            width: 100%;
+        }
+        .E2C3{
+            margin-left: 165%;
+            margin-top: -90%;
+            width: 100%;
+        }
+        .E4C1{
+            margin-left: 655%;
+            margin-top: -205%;
+            width: 100%;
+        }
+
+        .E4C2{
+            margin-left: 655%;
+            margin-top: 12%;
+            width: 100%;
+        }
+        .E4C3{
+            margin-left: 825%;
+            margin-top: -92%;
+            width: 100%;
+        }
+        .E6C1{
+            margin-left: 1455%;
+            margin-top: -92%;
+            width: 100%;
+        }
+        .E6C2{
+            margin-left: 1455%;
+            margin-top: 12%;
+            width: 100%;
+        }
+        .E6C3{
+            margin-left: 1455%;
+            margin-top: 12%;
+            width: 100%;
+        }
+       
+       
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="/static/images/DJI_0884.JPG" class="image" alt="Responsive image">
-        <div class="E3">
-        <div id="E2C3" class="E2C3" onmouseenter="afficherMessage('message3')" onmouseleave="cacherMessage('message3')">
-            <div class="message" id="message3">
-                <h5>{{ info['ecolab_2']['Cellule_3']['name'] }}</h5>
-                <p>Temperature Reprise : {{ info['ecolab_2']['Cellule_3']['params']['temperature_reprise'] }}</p>
-                <p>Temperature Eau Pluie : {{ info['ecolab_2']['Cellule_3']['params']['temperature_eau_pluie'] }}</p>
-                <p>Temperature Consigne : {{ info['ecolab_2']['Cellule_3']['params']['temperature_consigne'] }}</p>
-            </div>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+           data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" 
+                data-bs-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"></a>
+                   
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+               
+                  <a class="dropdown-item" href="#"></a>
+                
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="">
+                  Présentation
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="">
+                  Connexion
+                </a>
+                </li>
+            </ul>
+          </div>
         </div>
-
-        <div id="E2C2" class="E2C2" onmouseenter="afficherMessage('message2')" onmouseleave="cacherMessage('message2')">
-            <div class="message" id="message2">
-                <h5>{{ info['ecolab_2']['Cellule_2']['name'] }}</h5>
-                <p>Temp Reprise : {{ info['ecolab_2']['Cellule_2']['params']['temperature_reprise'] }}</p>
-                <p>Temperature Eau Pluie : {{ info['ecolab_2']['Cellule_2']['params']['temperature_eau_pluie'] }}</p>
-                <p>Temperature Consigne : {{ info['ecolab_2']['Cellule_2']['params']['temperature_consigne'] }}</p>
+      </nav>
+    
+    <div class="full">
+        <img class="ecolabs" src="/static/images/DJI_0884.JPG" alt="">
+        <div class="cell E1C3" id="E1C3">
+            <button class="btnE1C3">E1C3</button>
+            <div class="E1C2">
+            <button class="btnE1C2">E1C2</button>
             </div>
-        </div>
-
-        <div id="E2C1" class="E2C1" onmouseenter="afficherMessage('message1')" onmouseleave="cacherMessage('message1')">
-            <div class="message" id="message1">
-                <h5>{{ info['ecolab_2']['Cellule_1']['name'] }}</h5>
-                <p>Temp Reprise : {{ info['ecolab_2']['Cellule_1']['params']['temperature_reprise'] }}</p>
-                <p>Temperature Eau Pluie : {{ info['ecolab_2']['Cellule_1']['params']['temperature_eau_pluie'] }}</p>
-                <p>Temperature Consigne : {{ info['ecolab_2']['Cellule_1']['params']['temperature_consigne'] }}</p>
+            <div class="E1C1">
+            <button class="btnE1C1">E1C1</button>
             </div>
-        </div>
-    </div>
+            <div class="E3C3">
+                <button class="btnE3C3">E3C3</button>
+            </div>
+            <div class="E3C2">
+                <button class="btnE3C2">E3C2</button>
+            </div>
+            <div class="E3C1">
+                <button class="btnE3C1">E3C1</button>
+            </div>
+            <div class="E5C3">
+                <button class="btnE5C3">E5C3</button>
+            </div>
+            <div class="E5C2">
+                <button class="btnE5C2">E5C2</button>
+            </div>
+            <div class="E5C1">
+                <button class="btnE5C1">E5C1</button>
+            </div>
+            <div class="E2C1">
+                <button class="btnE2C1">E2C1</button>
+            </div>
+            <div class="E2C2">
+                <button class="btnE2C2">E2C2</button>
+            </div>
+            <div class="E2C3">
+                <button class="btnE2C3">E2C3</button>
+            </div>
+            <div class="E4C1">
+                <button class="btnE4C1">E4C1</button>
+            </div>
+            <div class="E4C2">
+                <button class="btnE4C2">E4C2</button>
+            </div>
+            <div class="E4C3">
+                <button class="btnE4C3">E4C3</button>
+            </div>
+            <div class="E6C1">
+                <button class="btnE6C1">E6C1</button>
+            </div>
+            <div class="E6C2">
+                <button class="btnE6C2">E6C2</button>
+            </div>
+            <div class="E6C3">
+                <button class="btnE6C3">E6C3</button>
+            </div>
+        </div>    
     </div>
 
     <script>
-        function afficherMessage(messageId) {
-            var messageDiv = document.getElementById(messageId);
-            messageDiv.style.display = "block";
-        }
+        function adjustStyles() {
+            const ecolabs = document.querySelector('.ecolabs');
+            const E1C3 = document.querySelector('#E1C3');
+            const btnE1C3 = document.querySelector('.btnE1C3');
+            const btnE1C2 =document.querySelector('.btnE1C2');
+            const btnE1C1 = document.querySelector('.btnE1C1')
 
-        function cacherMessage(messageId) {
-            var messageDiv = document.getElementById(messageId);
-            messageDiv.style.display = "none";
+            const E3C3 = document.querySelector('.E3C3')
+            const E5C3 = document.querySelector('.E5C3')
+            const E2C1 = document.querySelector('.E2C1')
+            const E4C1 = document.querySelector('.E2C1')
+
+
+
+            const btnE3C3 = document.querySelector('.btnE3C3')
+            const btnE3C2 = document.querySelector('.btnE3C2')
+            const btnE3C1 = document.querySelector('.btnE3C1')
+
+            const btnE5C3 = document.querySelector('.btnE5C3')
+            const btnE5C2 = document.querySelector('.btnE5C2')
+            const btnE5C1 = document.querySelector('.btnE5C1')
+
+            const btnE2C3 = document.querySelector('.btnE2C3')
+            const btnE2C2 = document.querySelector('.btnE2C2')
+            const btnE2C1 = document.querySelector('.btnE2C1')
+
+            const btnE4C3 = document.querySelector('.btnE4C3')
+            const btnE4C2 = document.querySelector('.btnE4C2')
+            const btnE4C1 = document.querySelector('.btnE4C1')
+
+            const btnE6C3 = document.querySelector('.btnE6C3')
+            const btnE6C2 = document.querySelector('.btnE6C2')
+            const btnE6C1 = document.querySelector('.btnE6C1')
+
+
+            if (window.innerWidth <= 1980) {
+                
+                ecolabs.style.display = 'block';
+                E1C3.style.position = 'absolute';
+                E1C3.style.top = '248px';
+                E1C3.style.left = '25.1%';
+                btnE1C3.style.backgroundColor = 'red';
+                E1C3.style.width = '4%';
+                
+                const paddingtop = 30
+                const paddingbottom = 30
+                const width = 150
+                btnE1C3.style.width = `${width}%`;
+                btnE1C3.style.paddingTop = `${paddingtop}%`;
+                btnE1C3.style.paddingBottom = `${paddingbottom}%`;
+                
+
+                btnE1C2.style.paddingTop = `${paddingtop}%`;
+                btnE1C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE1C2.style.width =`${width}%`;
+
+                btnE1C1.style.paddingTop = `${paddingtop}%`;
+                btnE1C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE1C1.style.width =`${width}%`;
+                //btnE1C1.style.marginTop =`14%`;
+               
+                btnE3C3.style.paddingTop = `${paddingtop}%`;
+                btnE3C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE3C3.style.width =`${width}%`;
+                btnE3C3.style.marginTop =`-5%`;
+
+                btnE3C2.style.paddingTop = `${paddingtop}%`;
+                btnE3C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE3C2.style.width =`${width}%`;
+               // btnE3C2.style.marginTop =`-5%`;
+               
+                btnE3C1.style.paddingTop = `${paddingtop}%`;
+                btnE3C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE3C1.style.width =`${width}%`;
+
+                btnE5C3.style.paddingTop = `${paddingtop}%`;
+                btnE5C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE5C3.style.width =`${width}%`;
+
+                btnE5C2.style.paddingTop = `${paddingtop}%`;
+                btnE5C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE5C2.style.width =`${width}%`;
+
+                btnE5C1.style.paddingTop = `${paddingtop}%`;
+                btnE5C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE5C1.style.width =`${width}%`;
+
+
+                btnE2C2.style.paddingTop = `${paddingtop}%`;
+                btnE2C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE2C2.style.width =`${width}%`;
+
+                btnE2C1.style.paddingTop = `${paddingtop}%`;
+                btnE2C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE2C1.style.width =`${width}%`;
+
+
+                btnE2C3.style.paddingTop = `${paddingtop}%`;
+                btnE2C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE2C3.style.width =`${width}%`;
+
+
+                btnE4C1.style.paddingTop = `${paddingtop}%`;
+                btnE4C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE4C1.style.width =`${width}%`;
+
+                btnE4C2.style.paddingTop = `${paddingtop}%`;
+                btnE4C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE4C2.style.width =`${width}%`;
+
+                btnE4C3.style.paddingTop = `${paddingtop}%`;
+                btnE4C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE4C3.style.width =`${width}%`;
+
+                btnE6C1.style.paddingTop = `${paddingtop}%`;
+                btnE6C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE6C1.style.width =`${width}%`;
+
+                btnE6C2.style.paddingTop = `${paddingtop}%`;
+                btnE6C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE6C2.style.width =`${width}%`;
+
+                btnE6C3.style.paddingTop = `${paddingtop}%`;
+                btnE6C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE6C3.style.width =`${width}%`;
+
+            } 
+            if (window.innerWidth <= 1950) {
+                
+                ecolabs.style.display = 'block';
+                E1C3.style.position = 'absolute';
+                E1C3.style.top = '245px';
+                E1C3.style.left = '25.1%';
+                btnE1C3.style.backgroundColor = 'red';
+                E1C3.style.width = '4%';
+                
+                const paddingtop = 30
+                const paddingbottom = 30
+                const width = 150
+                btnE1C3.style.width = `${width}%`;
+                btnE1C3.style.paddingTop = `${paddingtop}%`;
+                btnE1C3.style.paddingBottom = `${paddingbottom}%`;
+                
+
+                btnE1C2.style.paddingTop = `${paddingtop}%`;
+                btnE1C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE1C2.style.width =`${width}%`;
+
+                btnE1C1.style.paddingTop = `${paddingtop}%`;
+                btnE1C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE1C1.style.width =`${width}%`;
+                //btnE1C1.style.marginTop =`14%`;
+               
+                btnE3C3.style.paddingTop = `${paddingtop}%`;
+                btnE3C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE3C3.style.width =`${width}%`;
+                btnE3C3.style.marginTop =`-5%`;
+
+                btnE3C2.style.paddingTop = `${paddingtop}%`;
+                btnE3C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE3C2.style.width =`${width}%`;
+               // btnE3C2.style.marginTop =`-5%`;
+               
+                btnE3C1.style.paddingTop = `${paddingtop}%`;
+                btnE3C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE3C1.style.width =`${width}%`;
+
+                btnE5C3.style.paddingTop = `${paddingtop}%`;
+                btnE5C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE5C3.style.width =`${width}%`;
+
+                btnE5C2.style.paddingTop = `${paddingtop}%`;
+                btnE5C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE5C2.style.width =`${width}%`;
+
+                btnE5C1.style.paddingTop = `${paddingtop}%`;
+                btnE5C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE5C1.style.width =`${width}%`;
+
+
+                btnE2C2.style.paddingTop = `${paddingtop}%`;
+                btnE2C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE2C2.style.width =`${width}%`;
+
+                btnE2C1.style.paddingTop = `${paddingtop}%`;
+                btnE2C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE2C1.style.width =`${width}%`;
+                btnE2C1.style.marginTop = '-8%'
+
+                btnE2C3.style.paddingTop = `${paddingtop}%`;
+                btnE2C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE2C3.style.width =`${width}%`;
+
+
+                btnE4C1.style.paddingTop = `${paddingtop}%`;
+                btnE4C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE4C1.style.width =`${width}%`;
+
+                btnE4C2.style.paddingTop = `${paddingtop}%`;
+                btnE4C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE4C2.style.width =`${width}%`;
+
+                btnE4C3.style.paddingTop = `${paddingtop}%`;
+                btnE4C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE4C3.style.width =`${width}%`;
+
+                btnE6C1.style.paddingTop = `${paddingtop}%`;
+                btnE6C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE6C1.style.width =`${width}%`;
+
+                btnE6C2.style.paddingTop = `${paddingtop}%`;
+                btnE6C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE6C2.style.width =`${width}%`;
+
+                btnE6C3.style.paddingTop = `${paddingtop}%`;
+                btnE6C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE6C3.style.width =`${width}%`;
+
+                
+
+            } 
+            if (window.innerWidth <= 1918) {
+                
+                ecolabs.style.display = 'block';
+                E1C3.style.position = 'absolute';
+                E1C3.style.top = '240px';
+                E1C3.style.left = '25.1%';
+                btnE1C3.style.backgroundColor = 'red';
+                E1C3.style.width = '4%';
+                
+                const paddingtop = 30
+                const paddingbottom = 30
+                const width = 150
+                btnE1C3.style.width = `${width}%`;
+                btnE1C3.style.paddingTop = `${paddingtop}%`;
+                btnE1C3.style.paddingBottom = `${paddingbottom}%`;
+                
+
+                btnE1C2.style.paddingTop = `${paddingtop}%`;
+                btnE1C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE1C2.style.width =`${width}%`;
+
+                btnE1C1.style.paddingTop = `${paddingtop}%`;
+                btnE1C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE1C1.style.width =`${width}%`;
+                //btnE1C1.style.marginTop =`14%`;
+               
+                btnE3C3.style.paddingTop = `${paddingtop}%`;
+                btnE3C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE3C3.style.width =`${width}%`;
+                btnE3C3.style.marginTop =`-5%`;
+
+                btnE3C2.style.paddingTop = `${paddingtop}%`;
+                btnE3C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE3C2.style.width =`${width}%`;
+               // btnE3C2.style.marginTop =`-5%`;
+               
+                btnE3C1.style.paddingTop = `${paddingtop}%`;
+                btnE3C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE3C1.style.width =`${width}%`;
+
+                btnE5C3.style.paddingTop = `${paddingtop}%`;
+                btnE5C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE5C3.style.width =`${width}%`;
+
+                btnE5C2.style.paddingTop = `${paddingtop}%`;
+                btnE5C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE5C2.style.width =`${width}%`;
+
+                btnE5C1.style.paddingTop = `${paddingtop}%`;
+                btnE5C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE5C1.style.width =`${width}%`;
+
+
+                btnE2C2.style.paddingTop = `${paddingtop}%`;
+                btnE2C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE2C2.style.width =`${width}%`;
+
+                btnE2C1.style.paddingTop = `${paddingtop}%`;
+                btnE2C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE2C1.style.width =`${width}%`;
+                btnE2C1.style.marginTop = '-12%'
+
+                btnE2C3.style.paddingTop = `${paddingtop}%`;
+                btnE2C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE2C3.style.width =`${width}%`;
+
+
+                btnE4C1.style.paddingTop = `${paddingtop}%`;
+                btnE4C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE4C1.style.width =`${width}%`;
+
+                btnE4C2.style.paddingTop = `${paddingtop}%`;
+                btnE4C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE4C2.style.width =`${width}%`;
+
+                btnE4C3.style.paddingTop = `${paddingtop}%`;
+                btnE4C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE4C3.style.width =`${width}%`;
+
+                btnE6C1.style.paddingTop = `${paddingtop}%`;
+                btnE6C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE6C1.style.width =`${width}%`;
+
+                btnE6C2.style.paddingTop = `${paddingtop}%`;
+                btnE6C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE6C2.style.width =`${width}%`;
+
+                btnE6C3.style.paddingTop = `${paddingtop}%`;
+                btnE6C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE6C3.style.width =`${width}%`;
+
+                
+
+            } 
+            if (window.innerWidth <= 1894) {
+                
+                ecolabs.style.display = 'block';
+                E1C3.style.position = 'absolute';
+                E1C3.style.top = '240px';
+                E1C3.style.left = '25.1%';
+                btnE1C3.style.backgroundColor = 'red';
+                E1C3.style.width = '4%';
+                
+                const paddingtop = 30
+                const paddingbottom = 30
+                const width = 150
+                btnE1C3.style.width = `${width}%`;
+                btnE1C3.style.paddingTop = `${paddingtop}%`;
+                btnE1C3.style.paddingBottom = `${paddingbottom}%`;
+                btnE1C3.style.marginTop= '-5%'
+
+                btnE1C2.style.paddingTop = `${paddingtop}%`;
+                btnE1C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE1C2.style.width =`${width}%`;
+
+                btnE1C1.style.paddingTop = `${paddingtop}%`;
+                btnE1C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE1C1.style.width =`${width}%`;
+                //btnE1C1.style.marginTop =`14%`;
+               
+                btnE3C3.style.paddingTop = `${paddingtop}%`;
+                btnE3C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE3C3.style.width =`${width}%`;
+                btnE3C3.style.marginTop =`-5%`;
+                btnE3C3.style.marginTop= '-5%'
+
+                btnE3C2.style.paddingTop = `${paddingtop}%`;
+                btnE3C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE3C2.style.width =`${width}%`;
+               // btnE3C2.style.marginTop =`-5%`;
+               
+               
+                btnE3C1.style.paddingTop = `${paddingtop}%`;
+                btnE3C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE3C1.style.width =`${width}%`;
+                //btnE3C1.style.marginTop = '-5%'
+
+                btnE5C3.style.paddingTop = `${paddingtop}%`;
+                btnE5C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE5C3.style.width =`${width}%`;
+                btnE5C3.style.marginTop= '-10%'
+
+                btnE5C2.style.paddingTop = `${paddingtop}%`;
+                btnE5C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE5C2.style.width =`${width}%`;
+
+                btnE5C1.style.paddingTop = `${paddingtop}%`;
+                btnE5C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE5C1.style.width =`${width}%`;
+
+
+                btnE2C2.style.paddingTop = `${paddingtop}%`;
+                btnE2C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE2C2.style.width =`${width}%`;
+                
+
+                btnE2C1.style.paddingTop = `${paddingtop}%`;
+                btnE2C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE2C1.style.width =`${width}%`;
+                btnE2C1.style.marginTop = '-2%'
+
+                btnE2C3.style.paddingTop = `${paddingtop}%`;
+                btnE2C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE2C3.style.width =`${width}%`;
+
+
+                btnE4C1.style.paddingTop = `${paddingtop}%`;
+                btnE4C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE4C1.style.width =`${width}%`;
+                btnE4C1.style.marginTop= '-10%'
+
+                btnE4C2.style.paddingTop = `${paddingtop}%`;
+                btnE4C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE4C2.style.width =`${width}%`;
+
+                btnE4C3.style.paddingTop = `${paddingtop}%`;
+                btnE4C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE4C3.style.width =`${width}%`;
+
+                btnE6C1.style.paddingTop = `${paddingtop}%`;
+                btnE6C1.style.paddingBottom =  `${paddingbottom}%`;
+                btnE6C1.style.width =`${width}%`;
+
+                btnE6C2.style.paddingTop = `${paddingtop}%`;
+                btnE6C2.style.paddingBottom =  `${paddingbottom}%`;
+                btnE6C2.style.width =`${width}%`;
+
+                btnE6C3.style.paddingTop = `${paddingtop}%`;
+                btnE6C3.style.paddingBottom =  `${paddingbottom}%`;
+                btnE6C3.style.width =`${width}%`;
+
+                
+
+            } 
+
+
+
+
+
+
+        //     if (window.innerWidth <= 1842) {
+                
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '235px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'red';
+        //         E1C3.style.width = '4%';
+                
+        //         const paddingtop = 30
+        //         const paddingbottom = 30
+        //         const width = 150
+        //         btnE1C3.style.width = `${width}%`;
+        //         btnE1C3.style.paddingTop = `${paddingtop}%`;
+        //         btnE1C3.style.paddingBottom = `${paddingbottom}%`;
+                
+
+        //         btnE1C2.style.paddingTop = `${paddingtop}%`;
+        //         btnE1C2.style.paddingBottom =  `${paddingbottom}%`;
+        //         btnE1C2.style.width =`${width}%`;
+
+        //         btnE1C1.style.paddingTop = `${paddingtop}%`;
+        //         btnE1C1.style.paddingBottom =  `${paddingbottom}%`;
+        //         btnE1C1.style.width =`${width}%`;
+               
+        //         btnE3C3.style.paddingTop = `${paddingtop}%`;
+        //         btnE3C3.style.paddingBottom =  `${paddingbottom}%`;
+        //         btnE3C3.style.width =`${width}%`;
+        //     } 
+        //     if (window.innerWidth <= 1792) {
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '232px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'pink';
+        //         btnE1C3.style.width = '150%';
+        //         btnE1C3.style.paddingTop = '30%';
+        //         btnE1C3.style.paddingBottom = '30%';
+        //         E1C3.style.width = '4%';
+        //         //btnE1C3.style.paddingBottom = '20%';
+        //     } 
+        //     if (window.innerWidth <= 1742) {
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '222px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'green';
+        //         btnE1C3.style.width = '150%';
+        //         btnE1C3.style.paddingTop = '30%';
+        //         btnE1C3.style.paddingBottom = '30%';
+        //         E1C3.style.width = '4%';
+        //         //btnE1C3.style.paddingBottom = '20%';
+        //     } 
+        //     if (window.innerWidth <= 1692) {
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '218px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'black';
+        //         btnE1C3.style.width = '150%';
+        //         btnE1C3.style.paddingTop = '30%';
+        //         btnE1C3.style.paddingBottom = '30%';
+        //         E1C3.style.width = '4%';
+        //         //btnE1C3.style.paddingBottom = '20%';
+        //     } 
+        //     if (window.innerWidth <= 1642) {
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '210px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'red';
+        //         btnE1C3.style.width = '150%';
+        //         btnE1C3.style.paddingTop = '30%';
+        //         btnE1C3.style.paddingBottom = '30%';
+        //         E1C3.style.width = '4%';
+        //         //btnE1C3.style.paddingBottom = '20%';
+        //     } 
+        //     if (window.innerWidth <= 1592) {
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '205px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'pink';
+        //         E1C3.style.width = '4%';
+        //         btnE1C2.style.marginTop = '5%'
+                
+
+        //         const paddingtop = 25
+        //         const paddingbottom = 25
+        //         const width = 150
+        //         btnE1C3.style.width = `${width}%`;
+        //         btnE1C3.style.paddingTop = `${paddingtop}%`;
+        //         btnE1C3.style.paddingBottom = `${paddingbottom}%`;
+                
+
+        //         btnE1C2.style.paddingTop = `${paddingtop}%`;
+        //         btnE1C2.style.paddingBottom =  `${paddingbottom}%`;
+        //         btnE1C2.style.width =`${width}%`;
+
+        //         btnE1C1.style.paddingTop = `${paddingtop}%`;
+        //         btnE1C1.style.paddingBottom =  `${paddingbottom}%`;
+        //         btnE1C1.style.width =`${width}%`;
+               
+        //         btnE3C3.style.paddingTop = `${paddingtop}%`;
+        //         btnE3C3.style.paddingBottom =  `${paddingbottom}%`;
+        //         btnE3C3.style.width =`${width}%`;
+               
+        //         //btnE1C3.style.paddingBottom = '20%';
+        //     } 
+        //     if (window.innerWidth <= 1542) {
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '200px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'green';
+                
+               
+        //         E1C3.style.width = '4%';
+        //         //btnE1C3.style.paddingBottom = '20%';
+        //     } 
+        //     if (window.innerWidth <= 1492) {
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '193px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'black';
+               
+        //         E1C3.style.width = '4%';
+        //         //btnE1C3.style.paddingBottom = '20%';
+        //     } 
+        //     if (window.innerWidth <= 1442) {
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '188px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'red';
+               
+        //         E1C3.style.width = '4%';
+        //         //btnE1C3.style.paddingBottom = '20%';
+        //     } 
+        //     if (window.innerWidth <= 1392) {
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '184px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'pink';
+        //         btnE1C3.style.width = '150%';
+        //         btnE1C3.style.paddingTop = '22%';
+        //         btnE1C3.style.paddingBottom = '22%';
+        //         E1C3.style.width = '4%';
+
+
+        //         const paddingtop = 22
+        //         const paddingbottom = 22
+        //         const width = 150
+        //         const margintop= 1
+        //         btnE1C3.style.width = `${width}%`;
+        //         btnE1C3.style.paddingTop = `${paddingtop}%`;
+        //         btnE1C3.style.paddingBottom = `${paddingbottom}%`;
+                
+
+        //         btnE1C2.style.paddingTop = `${paddingtop}%`;
+        //         btnE1C2.style.paddingBottom =  `${paddingbottom}%`;
+        //         btnE1C2.style.width =`${width}%`;
+        //         btnE1C2.style.marginTop = ``;
+
+        //         btnE1C1.style.paddingTop = `${paddingtop}%`;
+        //         btnE1C1.style.paddingBottom =  `${paddingbottom}%`;
+        //         btnE1C1.style.width =`${width}%`;
+               
+        //         btnE3C3.style.paddingTop = `${paddingtop}%`;
+        //         btnE3C3.style.paddingBottom =  `${paddingbottom}%`;
+        //         btnE3C3.style.width =`${width}%`;
+        //         btnE3C3.style.marginTop = ''
+               
+        //         //btnE1C3.style.paddingBottom = '20%';
+        //     } 
+        //     if (window.innerWidth <= 1342) {
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '173px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'green';
+        //         btnE1C3.style.width = '150%';
+        //         btnE1C3.style.paddingTop = '22%';
+        //         btnE1C3.style.paddingBottom = '22%';
+        //         E1C3.style.width = '4%';
+        //         //btnE1C3.style.paddingBottom = '20%';
+        //     } 
+        //     if (window.innerWidth <= 1292) {
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '168px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'black';
+        //         btnE1C3.style.width = '150%';
+        //         btnE1C3.style.paddingTop = '22%';
+        //         btnE1C3.style.paddingBottom = '22%';
+        //         E1C3.style.width = '4%';
+        //         //btnE1C3.style.paddingBottom = '20%';
+        //     } 
+        //     if (window.innerWidth <= 1262) {
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '163px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'green';
+        //         btnE1C3.style.width = '150%';
+        //         btnE1C3.style.paddingTop = '22%';
+        //         btnE1C3.style.paddingBottom = '22%';
+        //         E1C3.style.width = '4%';
+        //         //btnE1C3.style.paddingBottom = '20%';
+        //     } 
+
+        //     if (window.innerWidth <= 1210) {
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '160px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'red';
+        //         btnE1C3.style.width = '150%';
+        //         btnE1C3.style.paddingTop = '20%';
+        //         E1C3.style.width = '4%';
+        //         btnE1C2.style.marginTop = '-5%'
+        //         btnE1C2.style.paddingTop = '20%';
+               
+        //         btnE1C2.style.width ='150%';
+               
+        //         //btnE1C3.style.paddingBottom = '20%';
+        //     } 
+        //     if (window.innerWidth <= 1185) {
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '158px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'pink';
+        //         btnE1C3.style.width = '150%';
+        //         btnE1C3.style.paddingTop = '20%';
+        //         E1C3.style.width = '4%';
+        //         //btnE1C3.style.paddingBottom = '20%';
+        //     } 
+        //     if (window.innerWidth <= 1160){
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         E1C3.style.top = '155px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.backgroundColor = 'black';
+        //         btnE1C3.style.width = '150%';
+        //         btnE1C3.style.paddingTop = '20%';
+        //         E1C3.style.width = '4%';
+        //         //btnE1C3.style.paddingBottom = '20%';
+        //     } 
+        //     if (window.innerWidth <= 1110){
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         btnE1C3.style.backgroundColor = 'green';
+        //         E1C3.style.top = '148px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.width = '150%';
+
+        //     }
+        //     if (window.innerWidth <= 1060){
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         btnE1C3.style.backgroundColor = 'red';
+        //         E1C3.style.top = '142px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.width = '150%';
+
+        //        // btnE3C3.style.marginTop = '0cap;'
+
+        //     }
+        //     if (window.innerWidth <= 1010){
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         btnE1C3.style.backgroundColor = 'black';
+        //         E1C3.style.top = '135px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.width = '150%';
+
+        //         btnE3C3.style.marginTop = '-27%'
+
+        //     }
+        //     if (window.innerWidth <= 960){
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         btnE1C3.style.backgroundColor = 'green';
+        //         E1C3.style.top = '127px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.width = '150%';
+        //     }
+        //     if (window.innerWidth <= 910){
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         btnE1C3.style.backgroundColor = 'red';
+        //         E1C3.style.top = '120px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.width = '150%';
+        //         btnE1C2.style.marginLeft= '0%'
+
+
+        //         btnE3C3.style.marginTop = '0cap;'
+        //     }
+        //     if (window.innerWidth <= 860){
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         btnE1C3.style.backgroundColor = 'green';
+        //         E1C3.style.top = '112px';
+        //         E1C3.style.left = '25.1%';
+        //         btnE1C3.style.width = '161%';
+        //         E1C3.style.width = '3.5%';
+        //         btnE1C2.style.marginLeft= '30%'
+        //         btnE1C2.style.marginTop= '-13%'
+
+        //         btnE3C3.style.marginTop = '0cap;'
+        //     }
+        //     if (window.innerWidth <= 810){
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         btnE1C3.style.backgroundColor = 'red';
+        //         E1C3.style.top = '112px';
+        //         E1C3.style.left = '25.5%';
+        //         btnE1C3.style.width = '161%';
+        //         btnE1C3.style.width = '150%';
+        //         //E1C3.style.width = '3.5%';
+               
+        //     }
+        //     if (window.innerWidth <= 787){
+        //         ecolabs.style.display = 'block';
+        //         E1C3.style.position = 'absolute';
+        //         btnE1C3.style.backgroundColor = 'red';
+        //         E1C3.style.top = '98px';
+        //         E1C3.style.left = '25.5%';
+        //         btnE1C3.style.width = '150%';
+        //         //E1C3.style.fontSize = '50%'
+               
+
+        //         btnE1C2.style.marginLeft= '30%'
+        //         btnE1C2.style.marginTop= '-90%'
+        //         //E1C3.style.width = '3.5%';
+        //         const paddingtop = 15
+        //         const paddingbottom = 15
+        //         const paddingleft = 3.2
+        //         const width = 150
+                
+        //         btnE1C3.style.width = `${width}%`;
+        //         btnE1C3.style.paddingTop = `${paddingtop}%`;
+        //         btnE1C3.style.paddingBottom = `${paddingbottom}%`;
+        //         E1C3.style.width = `${paddingleft}%`;
+                
+                
+
+        //         btnE1C2.style.paddingTop = `${paddingtop}%`;
+        //         btnE1C2.style.paddingBottom =  `${paddingbottom}%`;
+        //         btnE1C2.style.width =`${width}%`;
+        //         btnE1C2.style.marginTop = `-100%`;
+
+        //         btnE1C1.style.paddingTop = `${paddingtop}%`;
+        //         btnE1C1.style.paddingBottom =  `${paddingbottom}%`;
+        //         btnE1C1.style.width =`${width}%`;
+        //         btnE1C1.style.marginTop = `-100%`;
+
+        //         btnE3C3.style.paddingTop = `${paddingtop}%`;
+        //         btnE3C3.style.paddingBottom =  `${paddingbottom}%`;
+        //         btnE3C3.style.width =`${width}%`;
+        //         btnE1C3.style.marginTop = `-900px`;
+        //     }
+        //     if (window.innerWidth < 768){
+        //         ecolabs.style.display = 'None';
+        //         E1C3.style.position = 'absolute';
+        //         btnE1C3.style.backgroundColor = 'red';
+        //         E1C3.style.top = '15.6%';
+        //         E1C3.style.left = '25.5%';
+        //         btnE1C3.style.width = '150%';
+        //         btnE1C2.style.marginLeft= '30%'
+        //         btnE1C2.style.marginTop= '-90%'
+        //         //E1C3.style.width = '3.5%';
+        //     }
+        // }
+        
         }
+        // Appeler la fonction pour ajuster les styles initiaux
+        adjustStyles();
+
+        // Ajouter un écouteur d'événement de redimensionnement de fenêtre
+        window.addEventListener('resize', adjustStyles);
     </script>
 </body>
 </html>
