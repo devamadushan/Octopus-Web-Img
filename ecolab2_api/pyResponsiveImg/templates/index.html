@@ -111,7 +111,7 @@
             <img class="ecolabs_mobil" src="/static/images/imgmobil2.png" alt="">
            
             <div class="cell E1C3_mobil">
-             <a href="/E1C3"> <button class="btnE1C3_mobil" >E1C3</button> </a>
+             <a href="/E1C3"> <button class="btnE1C3_mobil">E1C3</button> </a>
             <div class="E1C2_mobil">
              <a href="/E1C2"> <button class="btnE1C2_mobil" >E1C2</button> </a>
             </div>
@@ -178,7 +178,7 @@
                 <table class="table">
                     <tr>
                     <td>Temperature Reprise</td>
-                    <td>{{ info['params']['temperature_reprise'] | round }}</td>
+                    <td>{{ info['params']['temperature_reprise']| round }}</td>
                     </tr>
                     <tr>
                     <td>Temperature Eau Pluie</td>
@@ -195,9 +195,111 @@
             </div>
             {% endif %}
             <script>
+                 const ecolabs = document.querySelector('.ecolabs');
+    const ecolabs_mobil = document.querySelector('.ecolabs_mobil')
+    const E1C3 = document.querySelector('#E1C3');
+    const E1C3_mobil = document.querySelector('.E1C3_mobil')
+    const E1C2 = document.querySelector('.E1C2');
 
-               
-            </script>
+    const btnE1C3 = document.querySelector('.btnE1C3');
+    const btnE1C2 =document.querySelector('.btnE1C2');
+    const btnE1C1 = document.querySelector('.btnE1C1')
+
+    const E3C3 = document.querySelector('.E3C3')
+    const E5C3 = document.querySelector('.E5C3')
+    const E2C1 = document.querySelector('.E2C1')
+    const E4C1 = document.querySelector('.E2C1')
+
+
+
+    const btnE3C3 = document.querySelector('.btnE3C3')
+    const btnE3C2 = document.querySelector('.btnE3C2')
+    const btnE3C1 = document.querySelector('.btnE3C1')
+
+    const btnE5C3 = document.querySelector('.btnE5C3')
+    const btnE5C2 = document.querySelector('.btnE5C2')
+    const btnE5C1 = document.querySelector('.btnE5C1')
+
+    const btnE2C3 = document.querySelector('.btnE2C3')
+    const btnE2C2 = document.querySelector('.btnE2C2')
+    const btnE2C1 = document.querySelector('.btnE2C1')
+
+    const btnE4C3 = document.querySelector('.btnE4C3')
+    const btnE4C2 = document.querySelector('.btnE4C2')
+    const btnE4C1 = document.querySelector('.btnE4C1')
+
+    const btnE6C3 = document.querySelector('.btnE6C3')
+    const btnE6C2 = document.querySelector('.btnE6C2')
+    const btnE6C1 = document.querySelector('.btnE6C1')
+
+
+
+
+    const btnE1C3_mobil = document.querySelector('.btnE1C3_mobil');
+    const btnE1C2_mobil =document.querySelector('.btnE1C2_mobil');
+    const btnE1C1_mobil = document.querySelector('.btnE1C1_mobil')
+
+   
+    const btnE2C1_mobil = document.querySelector('.btnE2C1_mobil')
+    const btnE2C2_mobil = document.querySelector('.btnE2C2_mobil') 
+    const btnE2C3_mobil = document.querySelector('.btnE2C3_mobil')
+
+    const btnE3C3_mobil = document.querySelector('.btnE3C3_mobil')
+    const btnE3C2_mobil = document.querySelector('.btnE3C2_mobil') 
+    const btnE3C1_mobil = document.querySelector('.btnE3C1_mobil')
+
+    const btnE4C1_mobil = document.querySelector('.btnE4C1_mobil')
+    const btnE4C2_mobil = document.querySelector('.btnE4C2_mobil') 
+    const btnE4C3_mobil = document.querySelector('.btnE4C3_mobil')
+
+    const btnE5C3_mobil = document.querySelector('.btnE5C3_mobil')
+    const btnE5C2_mobil = document.querySelector('.btnE5C2_mobil') 
+    const btnE5C1_mobil = document.querySelector('.btnE5C1_mobil')
+
+    const btnE6C1_mobil = document.querySelector('.btnE6C1_mobil')
+    const btnE6C2_mobil = document.querySelector('.btnE6C2_mobil') 
+    const btnE6C3_mobil = document.querySelector('.btnE6C3_mobil')
+
+    const E2C1_mobil = document.querySelector('.E2C1_mobil')
+    const E3C3_mobil = document.querySelector('.E3C3_mobil')
+    const E4C1_mobil = document.querySelector('.E4C1_mobil')
+    const E5C3_mobil = document.querySelector('.E5C3_mobil')
+    const E6C1_mobil = document.querySelector('.E6C1_mobil')
+   
+    
+
+     btnE1C1.style.backgroundColor =  "{{ couleur[0]  }}"
+     btnE1C2.style.backgroundColor = "{{ couleur[1]  }}"
+     btnE1C3.style.backgroundColor = "{{ couleur[2]  }}"
+
+     btnE2C1.style.backgroundColor =  "{{ couleur[3]  }}"
+     btnE2C2.style.backgroundColor = "{{ couleur[4]  }}"
+     btnE2C3.style.backgroundColor = "{{ couleur[5]  }}"
+
+     btnE3C1.style.backgroundColor =  "{{ couleur[6]  }}"
+     btnE3C2.style.backgroundColor = "{{ couleur[7]  }}"
+     btnE3C3.style.backgroundColor = "{{ couleur[8]  }}"
+
+     btnE4C1.style.backgroundColor =  "{{ couleur[9]  }}"
+     btnE4C2.style.backgroundColor = "{{ couleur[10]  }}"
+     btnE4C3.style.backgroundColor = "{{ couleur[11]  }}"
+
+     btnE5C1.style.backgroundColor =  "{{ couleur[12]  }}"
+     btnE5C2.style.backgroundColor = "{{ couleur[13]  }}"
+     btnE5C3.style.backgroundColor = "{{ couleur[14]  }}"
+
+     btnE6C1.style.backgroundColor =  "{{ couleur[15]  }}"
+     btnE6C2.style.backgroundColor = "{{ couleur[16]  }}"
+     btnE6C3.style.backgroundColor = "{{ couleur[17]  }}"
+
+
+
+
+
+
+
+
+              </script>
 
     <script src="/static/responsive.js"> </script>
 </body>

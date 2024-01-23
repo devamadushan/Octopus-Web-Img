@@ -8,7 +8,7 @@ import requests
 app = Flask(__name__)
 ecolabs = {
 
-        "ecolab_2": {
+        "ecolab_": {
             'Cellule_1': {
                 "name": "E2C1",
                 "fins": {
@@ -19,8 +19,8 @@ ecolabs = {
                     "dst_unit_addr": 0
                 },
                 "params": {
-                    "temperature_reprise": 10,
-                    "temperature_eau_pluie": 15,
+                    "temperature_reprise": 0,
+                    "temperature_eau_pluie": 0,
                     "temperature_consigne": 0
                 }
             },
@@ -34,8 +34,8 @@ ecolabs = {
                         "dst_unit_addr": 0
                     },
                     "params": {
-                        "temperature_reprise": 11,
-                        "temperature_eau_pluie": 16,
+                        "temperature_reprise": 0,
+                        "temperature_eau_pluie": 0,
                         "temperature_consigne": 0
                     }
             },
@@ -49,8 +49,8 @@ ecolabs = {
                         "dst_unit_addr": 0
                     },
                     "params": {
-                        "temperature_reprise": 12,
-                        "temperature_eau_pluie": 17,
+                        "temperature_reprise": 9,
+                        "temperature_eau_pluie": 0,
                         "temperature_consigne": 0
                     }
             }
@@ -58,33 +58,128 @@ ecolabs = {
 
     }
 
-# country = input("lr nom de la vile :")
 
-
-# try:
-#
-#     print(json)
-#     print(json['name']['official'])
-# except Exception as e:
-#     print(f"Une erreur s'est produite : {e}")
-parameters = None
+parameters = ecolabs
+print(parameters['ecolab_']['Cellule_3']['params']['temperature_reprise'])
+colors = []
 
 @app.route('/')
 def index():
+    cells= ["E1C1","E1C2","E1C3","E2C1","E2C2","E2C3","E3C1","E3C2","E3C3","E4C1","E4C2","E4C3","E5C1","E5C2","E5C3","E6C1","E6C2","E6C3"]
     
-    print(parameters)
-    return render_template('index.html', info = parameters,detail="no")
+    parameters = ecolabs
+    for i in range(len(cells)):
+        ecolab = f'ecolab_{cells[i][1]}'
+        cellule = f'Cellule_{cells[i][3]}'
+        print(ecolab+cellule)
+
+        if  cells[i][1] == "1":
+            ecolab = "ecolab_"
+            parameters = ecolabs
+            print("oui")
+            if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                colors.append(" #f76a6a")
+                print("non")
+            else :
+               colors.append(" #a6f76a")
+               print("oui")
+
+
+
+
+        if cells[i][1] == "2":
+            #data = requests.get('http://10.119.20.100:8080/')
+            #parameters = data.json()
+            ecolab = "ecolab_"
+            parameters = ecolabs
+            if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                colors.append(" #f76a6a")
+            else :
+                colors.append(" #a6f76a")
+
+
+
+        if cells[i][1] == "3":
+            ecolab = 'ecolab_'
+            parameters = ecolabs
+            if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                colors.append(" #f76a6a")
+            else :
+                colors.append(" #a6f76a")
+
+
+        if cells[i][1] == "4":
+            ecolab = 'ecolab_'
+            parameters = ecolabs
+            if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                colors.append(" #f76a6a")
+            else :
+                colors.append(" #a6f76a")
+
+
+        if cells[i][1]== "5":
+            ecolab = 'ecolab_'
+            parameters = ecolabs
+            if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                colors.append(" #f76a6a")
+            else :
+                colors.append(" #a6f76a")
+
+
+        if cells[i][1] == "6":
+            ecolab = 'ecolab_'
+            parameters = ecolabs
+            if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                colors.append(" #f76a6a")
+            else :
+                colors.append(" #a6f76a")
+
+              
+    print("Index et valeurs de colors:", list(enumerate(colors))) 
+   
+    return render_template('index.html', info = parameters,detail="no", couleur= colors)
 
 @app.route('/<cell>')
 def detail(cell):
-    data = requests.get('http://10.119.20.100:8080/')
-    parameters = data.json()
-    ecolab = f'ecolab_{cell[1]}'
+    accesible = None
+
+    if cell[1] == "1":
+        parameters = ecolabs
+
+
+    if cell[1] == "2":
+        data = requests.get('http://10.119.20.100:8080/')
+        parameters = data.json()
+        accesible = "yes"
+
+
+    if cell[1] == "3":
+        parameters = ecolabs
+
+    if cell[1] == "4":
+       parameters = ecolabs
+
+    if cell[1] == "5":
+        parameters = ecolabs
+
+    if cell[1] == "6":
+        parameters = ecolabs
+
+
+    if accesible:
+        ecolab = f'ecolab_{cell[1]}'
+    else:
+        ecolab = "ecolab_"
+
     cellule = f"Cellule_{cell[3]}"
+    
+
+
+
     info = parameters[ecolab][cellule]
     print(info)
-    return render_template('index.html',detail="yes",info = info)
-    
+
+    return render_template('index.html',detail="yes",info= info, couleur= colors )
 
 # @app.route('/pays')
 # def pays():
@@ -111,4 +206,4 @@ def detail(cell):
 #     return render_template('rechercheParPays.html', info=json_data)
 
 if __name__ == '__main__':
-    app.run(host="10.118.10.126",port=4000,debug=True)
+    app.run(host="192.168.1.125",port=4000,debug=True)
