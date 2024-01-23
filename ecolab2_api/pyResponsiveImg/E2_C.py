@@ -67,20 +67,24 @@ ecolabs = {
 #     print(json['name']['official'])
 # except Exception as e:
 #     print(f"Une erreur s'est produite : {e}")
-
+parameters = None
 
 @app.route('/')
 def index():
+    
+    print(parameters)
+    return render_template('index.html', info = parameters,detail="no")
 
-     
-    # try:
-    #     api_lien = "http://10.119.20.100:8080/"
-    #     json_data = requests.get(api_lien).json()   
-    #     return render_template('index.html', info=json_data)
-    # except Exception as e:
-    #     print(f"Une erreur s'est produite : {e}")
-    #     return "Erreur lors de la récupération des données depuis l'API."
-    return render_template('index.html', info=ecolabs)
+@app.route('/<cell>')
+def detail(cell):
+    data = requests.get('http://10.119.20.100:8080/')
+    parameters = data.json()
+    ecolab = f'ecolab_{cell[1]}'
+    cellule = f"Cellule_{cell[3]}"
+    info = parameters[ecolab][cellule]
+    print(info)
+    return render_template('index.html',detail="yes",info = info)
+    
 
 # @app.route('/pays')
 # def pays():
