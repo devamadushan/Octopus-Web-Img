@@ -1,0 +1,220 @@
+.ecolabs {
+    max-width: 100%;
+}
+.ecolabs_mobil{
+    max-width: 100%;
+}
+
+.cell {
+    position: relative;
+}
+/* for 1980px width */
+.E1C3 {
+    position: absolute;
+    top: 126px;
+    left: 25.5%;
+    
+    width:4%;
+}
+
+.btnE1C3 {
+    width: 150%;
+    padding-top: 20%;
+    padding-bottom: 20%;
+}
+.E1C2{
+    margin-left: 160%;
+    margin-top: -99%;
+    width: 100%;
+}
+.E1C1{
+    margin-left: 160%;
+    margin-top: 8%;
+    width: 100%;
+    
+   
+    
+}
+.btnE1C1{
+    
+    
+   
+}
+.E3C3{
+    margin-left: 660%;
+    margin-top: -195%;
+    width: 100%;
+}
+.E3C2{
+    margin-left: 820%;
+    margin-top: -95%;
+    width: 100%;
+}
+.E3C1{
+    margin-left: 820%;
+    margin-top: 9%;
+    width: 100%;
+}
+.E5C3{
+    margin-left: 1320%;
+    margin-top: -203%;
+    width: 100%;
+}
+.E5C2{
+    margin-left: 1490%;
+    margin-top: -95%;
+    width: 100%;
+}
+.E5C1{
+    margin-left: 1490%;
+    margin-top: 15%;
+    width: 100%;
+}
+.E2C1{
+    margin-left: -5%;
+    margin-top: 310%;
+    width: 100%;
+}
+.E2C2{
+    margin-left: -5%;
+    margin-top: 10%;
+    width: 100%;
+}
+.E2C3{
+    margin-left: 165%;
+    margin-top: -90%;
+    width: 100%;
+}
+.E4C1{
+    margin-left: 655%;
+    margin-top: -205%;
+    width: 100%;
+}
+
+.E4C2{
+    margin-left: 655%;
+    margin-top: 12%;
+    width: 100%;
+}
+.E4C3{
+    margin-left: 825%;
+    margin-top: -92%;
+    width: 100%;
+}
+.E6C1{
+    margin-left: 1455%;
+    margin-top: -92%;
+    width: 100%;
+}
+.E6C2{
+    margin-left: 1455%;
+    margin-top: 12%;
+    width: 100%;
+}
+.E6C3{
+    margin-left: 1455%;
+    margin-top: 12%;
+    width: 100%;
+}
+.E1C2_mobil{
+    margin-left: 400%;
+    margin-top: -215%;
+    width: 100%;
+}
+.E1C1_mobil{
+    margin-left: 400%;
+    margin-top: 49%;
+    width: 100%;
+}
+.E2C1_mobil{
+    margin-left: 2.5%;
+    margin-top: 725%;
+    width: 100%;
+}
+.E2C2_mobil{
+    margin-left: 392.5%;
+    margin-top: -220%;
+    width: 100%;
+}
+.E2C3_mobil{
+    margin-left: 392.5%;
+    margin-top: 60%;
+    width: 100%;
+}
+.E3C3_mobil{
+    margin-left: 48.5%;
+    margin-top: 1580%;
+    width: 100%;
+}
+.E3C2_mobil{
+    margin-left: 458.5%;
+    margin-top: -180%;
+    width: 100%;
+}
+.E3C1_mobil{
+    margin-left: 458.5%;
+    margin-top: 95%;
+    width: 100%;
+}
+.E4C1_mobil{
+    margin-left: 54.5%;
+    margin-top: 760%;
+    width: 100%;
+}
+.E4C2_mobil{
+    margin-left: 480.5%;
+    margin-top: -175%;
+    width: 100%;
+}
+.E4C3_mobil{
+    margin-left: 480.5%;
+    margin-top: 120%;
+    width: 100%;
+}
+.E5C3_mobil{
+    margin-left: 55.5%;
+    margin-top: 1569%;
+    width: 100%;
+}
+.E5C2_mobil{
+    margin-left: 400.5%;
+    margin-top: -175%;
+    width: 100%;
+}
+.E5C1_mobil{
+    margin-left: 400.5%;
+    margin-top: 100%;
+    width: 100%;
+}
+.E6C1_mobil{
+    margin-left: 355.5%;
+    margin-top: 855%;
+    width: 100%;
+}
+.E6C2_mobil{
+    margin-left: 355.5%;
+    margin-top: 55%;
+    width: 100%;
+}
+.E6C3_mobil{
+    margin-left: 355.5%;
+    margin-top: 55%;
+    width: 100%;
+}
+.params{
+    background-color: rgb(255, 255, 255);
+    padding-top: 15%;
+    padding-bottom: 15%;
+
+    padding-left: 10%;
+    padding-right: 10%;
+    position: absolute;
+    top: 10%;
+    left:3%;
+   
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
