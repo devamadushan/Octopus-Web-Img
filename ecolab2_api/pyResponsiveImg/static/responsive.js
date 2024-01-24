@@ -1,3 +1,7 @@
+//Autor : Deva
+
+
+
 function adjustStyles() {
     const ecolabs = document.querySelector('.ecolabs');
     const ecolabs_mobil = document.querySelector('.ecolabs_mobil')
@@ -70,6 +74,8 @@ function adjustStyles() {
     const E5C3_mobil = document.querySelector('.E5C3_mobil')
     const E6C1_mobil = document.querySelector('.E6C1_mobil')
    
+   
+
    
 
     if (window.innerWidth <= 2129) {

@@ -63,6 +63,7 @@ parameters = ecolabs
 print(parameters['ecolab_']['Cellule_3']['params']['temperature_reprise'])
 colors = []
 
+#Autor : Deva
 @app.route('/')
 def index():
     cells= ["E1C1","E1C2","E1C3","E2C1","E2C2","E2C3","E3C1","E3C2","E3C3","E4C1","E4C2","E4C3","E5C1","E5C2","E5C3","E6C1","E6C2","E6C3"]
@@ -88,10 +89,10 @@ def index():
 
 
         if cells[i][1] == "2":
-            #data = requests.get('http://10.119.20.100:8080/')
-            #parameters = data.json()
-            ecolab = "ecolab_"
-            parameters = ecolabs
+            data = requests.get('http://10.119.20.100:8080/')
+            parameters = data.json()
+            #ecolab = "ecolab_"
+            #parameters = ecolabs
             if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
                 colors.append(" #f76a6a")
             else :
@@ -139,6 +140,7 @@ def index():
    
     return render_template('index.html', info = parameters,detail="no", couleur= colors)
 
+#Autor : Deva
 @app.route('/<cell>')
 def detail(cell):
     accesible = None
@@ -181,29 +183,7 @@ def detail(cell):
 
     return render_template('index.html',detail="yes",info= info, couleur= colors )
 
-# @app.route('/pays')
-# def pays():
-#     api_lien = "https://restcountries.com/v3.1/all"
-#     json_data = requests.get(api_lien).json()
-#     return render_template('lesPays.html', info=json_data)
 
-
-# @app.route('/rechercher', methods=['POST'])
-# def rechercher():
-#     recherche = request.form['recherchePays']
-#     api_lien = f"https://restcountries.com/v3.1/name/{recherche}"
-#     json_data = requests.get(api_lien).json()
-#     print(json_data)
-#     return render_template('rechercheParPays.html', info=json_data)
-
-# @app.route('/rechercher/<nom>')
-# def rechercherpays(nom):
-
-#     api_lien = f"https://restcountries.com/v3.1/name/{nom}"
-#     json_data = requests.get(api_lien).json()
-#     print(nom)
-#     print(json_data)
-#     return render_template('rechercheParPays.html', info=json_data)
 
 if __name__ == '__main__':
-    app.run(host="192.168.1.125",port=4000,debug=True)
+    app.run(host="10.118.10.130",port=4000,debug=True)
