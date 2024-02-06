@@ -1,464 +1,354 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lemon+Milk:wght@500&display=swap">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <link rel="stylesheet" href="/static/index.css">
-        <link rel="icon" href="/static/images/CNRSlogo.svg" type="image/x-icon">
-        <title>Accueil Ecolabs</title>
-    </head>
-    <body>
-        <h6 id="accueil"></h6>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="icon" href="/static/images/CNRSlogo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/static/index.css">
+    <title>Accueil</title>
 
-        <nav>
-            <!-- <h3><a href="experiences">Experiences</a></h3> -->
-            
-            <div class="dropdown">
-                <button class="dropbtn">Menu</button>
-                <div class="dropdown-content">
-                    <a href="experiences">Experiences</a>
-                    <a href="utilisateurs">Utilisateurs</a>
-                </div>
-            </div>
-            </button>
-            <h3 id="acc">Accueil</li>
-            {% if role == 'visiteur' %}
-                <h3 style="float:right"><a href="connexion" class="active">Connexion</a></h3>
-            {% else %}
-                <h3 style="float:right"><a href="deconnexion" class="active">Deconnexion</a></h3>
-            {% endif %}
-        </nav>
-        <script>
-            $(document).ready(function() {
-                var nav = $('nav');
-                var navOffset = nav.offset().top;
-                $(window).scroll(function() {
-                    if ($(this).scrollTop() > navOffset) {
-                        nav.addClass('fixed');
-                    } else {
-                        nav.removeClass('fixed');
-                    }
-                });
-            });
-        </script>
-
-
-        <!-- Partie Ecolabs -->
-        <div class="lesEcolabs">
-            <!-- ECOCUBE -->
-            <div class="ecocube">
-                <h2 class="namEcocube">ECOCUBE</h2>
-                <!-- E6C1 -->
-                <div class="cellEcocube" id="E6C1">
-                    <form action="detail" method="POST" >
-                        <button type="submit" name="name" value="E6C1" class="btn">
-                            <h3>E6C1</h3>
-                            <p>Température Reprise : {{ "%.1f"|format(info2['ecolab_2']['Cellule_1']['params']['temperature_reprise']) }}</p>
-                            <p>Température Eau Pluie : {{ "%.1f"|format(info2['ecolab_2']['Cellule_1']['params']['temperature_eau_pluie']) }}</p>
-                            <p>Température Consigne : {{ "%.1f"|format(info2['ecolab_2']['Cellule_1']['params']['temperature_consigne']) }}</p>           
-                        </button>
-                    </form> 
-                </div> 
-                <!-- E6C2 -->
-                <div class="cellEcocube" id="E6C2">
-                    <form action="detail" method="POST" >
-                        <button type="submit" name="name" value="E6C2" class="btn">
-                            <h3>E6C2</h3>
-                            <p>Température Reprise : 10.0</p>
-                            <p>Température Eau Pluie : 10.0</p>
-                            <p>Température Consigne : 20.0</p>
-                        </button>
-                    </form> 
-                </div>
-                <!-- E6C3 -->
-                <div class="cellEcocube" id="E6C3">
-                    <form action="detail" method="POST" >
-                        <button type="submit" name="name" value="E6C3" class="btn">
-                            <h3>E6C3</h3>
-                            <p>Température Reprise : 10.0</p>
-                            <p>Température Eau Pluie : 10.0</p>
-                            <p>Température Consigne : 20.0</p>
-                        </button>
-                    </form> 
-                </div>
-            </div>
-
-
-            <!-- ECOLAB 4 -->
-            <div class="ecolabZone">
-                <div class="ligne1"><p></p></div>
-                <div class="ligne2">
-                    <p id="r1"></p>
-                    <p id="r2"></p>
-                </div>
-                <div class="ecolab">
-                    <!-- Cellules du haut -->
-                    <div class="haut">
-                        <!-- E4C3 -->
-                        <div class="cell" id="E4C3">
-                            <form action="detail" method="POST">
-                                {% if not info4['ecolab_4']['Cellule_3']['params']['temperature_reprise'] %}
-                                    <button type="submit" name="name" value="E4C3" class="redBtn">
-                                        <h3>E4C3</h3>
-                                        <p>Température Reprise : <br>Aucune donnée</p>
-                                        <p>Température Eau Pluie : <br>Aucune donnée</p>
-                                        <p>Température Consigne : <br>Aucune donnée</p>
-                                    </button>
-                                {% else %}
-                                    <button type="submit" name="name" value="E4C3" class="btn">
-                                        <h3>E4C3</h3>
-                                        <p>Température Reprise : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_3']['params']['temperature_reprise']) }}</p>
-                                        <p>Température Eau Pluie : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_3']['params']['temperature_eau_pluie']) }}</p>
-                                        <p>Température Consigne : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_3']['params']['temperature_consigne']) }}</p>
-                                    </button>
-                                {% endif %}
-                            </form> 
-                        </div>
-                        <!-- E4C2 -->
-                        <div class="cell" id="E4C2">
-                            <form action="detail" method="POST">
-                                {% if not info4['ecolab_4']['Cellule_2']['params']['temperature_reprise'] %}
-                                    <button type="button" name="name" value="E4C2" class="redBtn">
-                                        <h3>E4C2</h3>
-                                        <p>Température Reprise : <br>Aucune donnée</p>
-                                        <p>Température Eau Pluie : <br>Aucune donnée</p>
-                                        <p>Température Consigne : <br>Aucune donnée</p>
-                                    </button>
-                                {% else %}
-                                    <button type="submit" name="name" value="E4C2" class="btn">
-                                        <h3>E4C2</h3>
-                                        <p>Température Reprise : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_2']['params']['temperature_reprise']) }}</p>
-                                        <p>Température Eau Pluie : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_2']['params']['temperature_eau_pluie']) }}</p>
-                                        <p>Température Consigne : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_2']['params']['temperature_consigne']) }}</p>
-                                    </button>
-                                {% endif %}
-                            </form>
-                        </div>
-                    </div>
-                    <!-- Cellule du bas -->
-                    <div class="bas">
-                        <!-- E4C1 -->
-                        <div class="cell" id="E4C1">
-                            <form action="detail" method="POST">
-                                {% if not info4['ecolab_4']['Cellule_1']['params']['temperature_reprise'] %}
-                                    <button type="submit" name="name" value="E4C1" class="redBtn">
-                                        <h3>E4C1</h3>
-                                        <p>Température Reprise : <br>Aucune donnée</p>
-                                        <p>Température Eau Pluie : <br>Aucune donnée</p>
-                                        <p>Température Consigne : <br>Aucune donnée</p>
-                                    </button>
-                                {% else %}
-                                    <button type="submit" name="name" value="E4C1" class="btn">
-                                        <h3>E4C1</h3>
-                                        <p>Température Reprise : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_reprise']) }}</p>
-                                        <p>Température Eau Pluie : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_eau_pluie']) }}</p>
-                                        <p>Température Consigne : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_consigne']) }}</p>
-                                    </button>
-                                {% endif %}
-                            </form> 
-                        </div>  
-                    </div>
-                </div>
-                <!-- Ligne du dessous -->
-                <div class="ligne3">
-                    <h2>Ecolab 4</h2>
-                    <div id="r3"></div>
-                </div>
-            </div>
-
-
-            <!-- Ecolab 2 -->
-            <div class="ecolabZone">
-                <div class="ligne1"><p></p></div>
-                <div class="ligne2">
-                    <p id="r1"></p>
-                    <p id="r2"></p>
-                </div>
-                <div class="ecolab">
-                    <!-- Cellules du haut -->
-                    <div class="haut">
-                        <!-- E2C3 -->
-                        <div class="cell" id="E2C3">
-                            <form action="detail" method="POST">
-                                {% if not info2['ecolab_2']['Cellule_3']['params']['temperature_reprise'] %}
-                                    <button type="button" name="name" value="E4C3" class="redBtn">
-                                        <h3>E2C3</h3>
-                                        <p>Température Reprise : <br>Aucune donnée</p>
-                                        <p>Température Eau Pluie : <br>Aucune donnée</p>
-                                        <p>Température Consigne : <br>Aucune donnée</p>
-                                    </button>
-                                {% else %}
-                                    <button type="submit" name="name" value="E2C3" class="btn">
-                                        <h3>E2C3</h3>
-                                        <p>Température Reprise : <br>{{ "%.1f"|format(info2['ecolab_2']['Cellule_3']['params']['temperature_reprise']) }}</p>
-                                        <p>Température Eau Pluie : <br>{{ "%.1f"|format(info2['ecolab_2']['Cellule_3']['params']['temperature_eau_pluie']) }}</p>
-                                        <p>Température Consigne : <br>{{ "%.1f"|format(info2['ecolab_2']['Cellule_3']['params']['temperature_consigne']) }}</p>
-                                    </button>
-                                {% endif %}
-                            </form> 
-                        </div>
-                        <!-- E2C2 -->
-                        <div class="cell" id="E2C2">
-                            <form action="detail" method="POST">
-                                {% if not info2['ecolab_2']['Cellule_2']['params']['temperature_reprise'] %}
-                                    <button type="submit" name="name" value="E2C2" class="redBtn">
-                                        <h3>E2C2</h3>
-                                        <p>Température Reprise : <br>Aucune donnée</p>
-                                        <p>Température Eau Pluie : <br>Aucune donnée</p>
-                                        <p>Température Consigne : <br>Aucune donnée</p>
-                                    </button>
-                                {% else %}
-                                    <button type="submit" name="name" value="E2C2" class="btn">
-                                        <h3>E2C2</h3>
-                                        <p>Température Reprise : <br>{{ "%.1f"|format(info2['ecolab_2']['Cellule_2']['params']['temperature_reprise']) }}</p>
-                                        <p>Température Eau Pluie : <br>{{ "%.1f"|format(info2['ecolab_2']['Cellule_2']['params']['temperature_eau_pluie']) }}</p>
-                                        <p>Température Consigne : <br>{{ "%.1f"|format(info2['ecolab_2']['Cellule_2']['params']['temperature_consigne']) }}</p>
-                                    </button>
-                                {% endif %}
-                            </form> 
-                        </div>
-                    </div>
-                    <!-- Cellule du bas -->
-                    <div class="bas">
-                        <!-- E2C1 -->
-                        <div class="cell" id="E2C1">
-                            <form action="detail" method="POST">
-                                {% if not info2['ecolab_2']['Cellule_1']['params']['temperature_reprise'] %}
-                                    <button type="submit" name="name" value="E2C1" class="redBtn">
-                                        <h3>E2C1</h3>
-                                        <p>Température Reprise : <br>Aucune donnée</p>
-                                        <p>Température Eau Pluie : <br>Aucune donnée</p>
-                                        <p>Température Consigne : <br>Aucune donnée</p>
-                                    </button>
-                                {% else %}
-                                    <button type="submit" name="name" value="E2C1" class="btn">
-                                        <h3>E2C1</h3>
-                                        <p>Température Reprise : <br>{{ "%.1f"|format(info2['ecolab_2']['Cellule_1']['params']['temperature_reprise']) }}</p>
-                                        <p>Température Eau Pluie : <br>{{ "%.1f"|format(info2['ecolab_2']['Cellule_1']['params']['temperature_eau_pluie']) }}</p>
-                                        <p>Température Consigne : <br>{{ "%.1f"|format(info2['ecolab_2']['Cellule_1']['params']['temperature_consigne']) }}</p>
-                                    </button>
-                                {% endif %}
-                            </form> 
-                        </div>  
-                    </div>
-                </div>
-                <!-- Ligne du dessous -->
-                <div class="ligne3">
-                    <h2>Ecolab 2</h2>
-                    <div id="r3"></div>
-                </div>
-            </div>
-        
-
-            <!-- ECOLAB 5 -->
-            <div class="ecolabZone">
-                <div class="ligne1"><p></p></div>
-                <div class="ligne2">
-                    <p id="r1"></p>
-                    <p id="r2"></p>
-                </div>
-                <div class="ecolab">
-                    <!-- Cellule du haut -->
-                    <div class="haut">
-                        <!-- E5C3 -->
-                        <div class="cell" id="E5C3">
-                            <form action="detail" method="POST" >
-                                <button type="submit" name="name" value="E5C3" class="btn">
-                                    <h3>E5C3</h3>
-                                    <p>Température Reprise : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_reprise']) }}</p>
-                                    <p>Température Eau Pluie : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_eau_pluie']) }}</p>
-                                    <p>Température Consigne : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_consigne']) }}</p>
-                                </button>
-                            </form> 
-                        </div>
-                    </div>
-                    <!-- Cellules du bas -->
-                    <div class="bas">
-                        <!-- E5C2 -->
-                        <div class="cell" id="E5C2">
-                            <form action="detail" method="POST" >
-                                <button type="submit" name="name" value="E5C2" class="btn">
-                                    <h3>E5C2</h3>
-                                    <p>Température Reprise : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_reprise']) }}</p>
-                                    <p>Température Eau Pluie : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_eau_pluie']) }}</p>
-                                    <p>Température Consigne : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_consigne']) }}</p>
-                                </button>
-                            </form> 
-                        </div>  
-                        <!-- E5C1 -->
-                        <div class="cell" id="E5C1">
-                            <form action="detail" method="POST" >
-                                <button type="submit" name="name" value="E5C1" class="btn">
-                                    <h3>E5C1</h3>
-                                    <p>Température Reprise : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_reprise']) }}</p>
-                                    <p>Température Eau Pluie : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_eau_pluie']) }}</p>
-                                    <p>Température Consigne : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_consigne']) }}</p>
-                                </button>
-                            </form> 
-                        </div>
-                    </div>
-                </div>
-                <!-- Ligne du dessous -->
-                <div class="ligne3">
-                    <h2>Ecolab 5</h2>
-                    <div id="r3"></div>
-                </div>
-            </div>
-        
-
-            <!-- ECOLAB 3 -->
-            <div class="ecolabZone">
-                <div class="ligne1"><p></p></div>
-                <div class="ligne2">
-                    <p id="r1"></p>
-                    <p id="r2"></p>
-                </div>
-                <div class="ecolab">
-                    <!-- Cellule du haut -->
-                    <div class="haut">
-                        <!-- E3C3 -->
-                        <div class="cell" id="E3C3">
-                            <form action="detail" method="POST" >
-                                <button type="submit" name="name" value="E3C3" class="btn">
-                                    <h3>E3C3</h3>
-                                    <p>Température Reprise : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_reprise']) }}</p>
-                                    <p>Température Eau Pluie : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_eau_pluie']) }}</p>
-                                    <p>Température Consigne : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_consigne']) }}</p>
-                                </button>
-                            </form> 
-                        </div>
-                    </div>
-                    <!-- Cellules du bas -->
-                    <div class="bas">
-                        <!-- E3C2 -->
-                        <div class="cell" id="E3C2">
-                            <form action="detail" method="POST" >
-                                <button type="submit" name="name" value="E3C2" class="btn">
-                                    <h3>E3C2</h3>
-                                    <p>Température Reprise : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_reprise']) }}</p>
-                                    <p>Température Eau Pluie : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_eau_pluie']) }}</p>
-                                    <p>Température Consigne : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_consigne']) }}</p>
-                                </button>
-                            </form> 
-                        </div>  
-                        <!-- E3C1 -->
-                        <div class="cell" id="E3C1">
-                            <form action="detail" method="POST" >
-                                <button type="submit" name="name" value="E3C1" class="btn">
-                                    <h3>E3C1</h3>
-                                    <p>Température Reprise : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_reprise']) }}</p>
-                                    <p>Température Eau Pluie : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_eau_pluie']) }}</p>
-                                    <p>Température Consigne : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_consigne']) }}</p>
-                                </button>
-                            </form> 
-                        </div>
-                    </div>
-                </div>
-                <!-- Ligne du dessous -->
-                <div class="ligne3">
-                    <h2>Ecolab 3</h2>
-                    <div id="r3"></div>
-                </div>    
-            </div>
-        
-
-            <!-- ECOLAB 1 -->
-            <div class="ecolabZone">
-                <div class="ligne1"><p></p></div>
-                <div class="ligne2">
-                    <p id="r1"></p>
-                    <p id="r2"></p>
-                </div>
-                <div class="ecolab">
-                    <!-- Cellule du haut -->
-                    <div class="haut">
-                        <!-- E1C3 -->
-                        <div class="cell" id="E1C3">
-                            <form action="detail" method="POST" >
-                                <button type="submit" name="name" value="E1C3" class="btn">
-                                    <h3>E1C3</h3>
-                                    <p>Température Reprise : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_reprise']) }}</p>
-                                    <p>Température Eau Pluie : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_eau_pluie']) }}</p>
-                                    <p>Température Consigne : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_consigne']) }}</p>
-                                </button>
-                            </form> 
-                        </div>
-                    </div>
-                    <!-- Cellules du bas -->
-                    <div class="bas">
-                        <!-- E1C2 -->
-                        <div class="cell" id="E1C2">
-                            <form action="detail" method="POST" >
-                                <button type="submit" name="name" value="E1C2" class="btn">
-                                    <h3>E1C2</h3>
-                                    <p>Température Reprise : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_reprise']) }}</p>
-                                    <p>Température Eau Pluie : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_eau_pluie']) }}</p>
-                                    <p>Température Consigne : <br>{{ "%.1f"|format(info4['ecolab_4']['Cellule_1']['params']['temperature_consigne']) }}</p>
-                                </button>
-                            </form> 
-                        </div>  
-                        <!-- E1C1 -->
-                        <div class="cell" id="E1C1">
-                            <form action="detail" method="POST" >
-                                <button type="submit" name="name" value="E1C1" class="btn">
-                                    <h3>E1C1</h3>
-                                    <p>Température Reprise : <br>10.0</p>
-                                    <p>Température Eau Pluie : <br>10.0</p>
-                                    <p>Température Consigne : <br>20.0</p>
-                                </button>
-                            </form> 
-                        </div>
-                    </div>
-                </div>
-                <!-- Ligne du dessous -->
-                <div class="ligne3">
-                    <h2>Ecolab 1</h2>
-                    <div id="r3"></div>
-                </div>
-            </div>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <div class="container-fluid">
+               <a class="navbar-brand"></a>
+               <a href=""> 
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                         data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+                         aria-expanded="false" aria-label="Toggle navigation">
+                         <span class="navbar-toggler-icon"></span>
+                    </button> 
+               </a>
+               <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                         <li class="nav-item">
+                              <a class="nav-link active" aria-current="page" href="#"></a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link " href="inscription">Inscription</a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link " href="experiences">Expériences</a>
+                         </li>
+                         <li class="nav-item">
+                              <a class="nav-link " href="utilisateurs">Utilisateurs</a>
+                         </li>
+                         <li class="nav-item">
+                         {% if role == 'visiteur' %}
+                              <a class="nav-link " href="connexion">Connexion</a>
+                         {% else %}
+                              <a class="nav-link" href="deconnexion">Déconnexion</a>
+                         {% endif %}
+                         </li>
+                    </ul>
+               </div>
         </div>
-
-        <a href="#accueil" id="haut"><img src="/static/images/icons8-flèche-vers-le-haut-50.png"></a>
-
-        <!-- Footer -->
-        <footer class="footer" role="contentinfo">
-            <div class="inner">
-                <div class="home__small-inner footer__content">
-                    <img src="/static/images/logo-footer.svg" alt="Accueil" class="logoCNRS">
-                    <div class="footer__child">
-                        <h3 class="footer__title">Nous suivre</h3>
-                        <ul class="footer__social">
-                            <li><a href="https://fr-fr.facebook.com/cnrs.fr/" target="_blank" class="facebook" rel="noopener noreferrer">Facebook</a></li>
-                            <li><a href="https://twitter.com/cnrs?lang=fr%20" target="_blank" class="twitter" rel="noopener noreferrer">Twitter</a></li>
-                            <li><a href="https://www.instagram.com/cnrs/" target="_blank" class="instagram" rel="noopener noreferrer">Instagram</a></li>
-                            <li><a href="https://www.youtube.com/@CNRS" target="_blank" class="youtube" rel="noopener noreferrer">Youtube</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <ul class="credits">
-                <li class="menu-item">
-                    <a href="/fr/accessibilite" target="_self" title="Politique d'accessibilité" data-drupal-link-system-path="node/1717" rel="noopener">Accessibilité</a>
-                </li>
-                <li class="menu-item">
-                    <a href="/fr/credits" title="Crédits du site" data-drupal-link-system-path="node/1685">Crédits</a>
-                </li>
-                <li class="menu-item">
-                    <a href="/fr/gestion-des-cookies" data-drupal-link-system-path="node/5633">Gestion des cookies</a>
-                </li>
-                <li class="menu-item">
-                    <a href="/fr/rgpd" target="_self" title="RGPD" data-drupal-link-system-path="node/3179" rel="noopener">Données personnelles</a>
-                </li>
-                <li class="menu-item">
-                    <a href="/fr/mentions-legales" data-drupal-link-system-path="node/1707">Mentions légales</a>
-                </li>
-            </ul>
-        </footer>
+      </nav>
+</head>
+<body>
     
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </body>
-    </html>
+    
+    <div class="full">
+        
+        <img class="ecolabs" src="/static/images/DJI_0884.JPG" alt="">
+        
+        <div class="cell E1C3" id="E1C3">
+           <a href="/E1C3"><button class="btnE1C3">E1C3</button> </a>
+            <div class="E1C2">
+             <a href="/E1C2"> <button class="btnE1C2">E1C2</button> </a>
+            </div>
+            <div class="E1C1">
+             <a href="/E1C1"> <button class="btnE1C1" >E1C1</button> </a>
+            </div>
+            <div class="E3C3">
+                 <a href="/E3C3"> <button class="btnE3C3"  >E3C3</button> </a>
+            </div>
+            <div class="E3C2">
+                 <a href="/E3C2"> <button class="btnE3C2" >E3C2</button> </a>
+            </div>
+            <div class="E3C1">
+                 <a href="/E3C1"> <button class="btnE3C1"  >E3C1</button> </a>
+            </div>
+            <div class="E5C3">
+                 <a href="/E5C3"> <button class="btnE5C3"  >E5C3</button> </a>
+            </div>
+            <div class="E5C2">
+                 <a href="/E5C2"> <button class="btnE5C2"  >E5C2</button> </a>
+            </div>
+            <div class="E5C1">
+                 <a href="/E5C1"> <button class="btnE5C1" >E5C1</button> </a>
+            </div>
+            <div class="E2C1">
+                 <a href="/E2C1"> <button class="btnE2C1" >E2C1</button> </a>
+            </div>
+            <div class="E2C2">
+                 <a href="/E2C2"> <button class="btnE2C2" >E2C2</button> </a>
+            </div>
+            <div class="E2C3">
+                 <a href="/E2C3"> <button class="btnE2C3">E2C3</button> </a>
+            </div>
+            <div class="E4C1">
+                 <a href="/E4C1"> <button class="btnE4C1">E4C1</button> </a>
+            </div>
+            <div class="E4C2">
+                 <a href="/E4C2"> <button class="btnE4C2" >E4C2</button> </a>
+            </div>
+            <div class="E4C3">
+                 <a href="/E4C3"> <button class="btnE4C3">E4C3</button> </a>
+            </div>
+            <div class="E6C1">
+                 <a href="/E6C1"> <button class="btnE6C1" >E6C1</button> </a>
+            </div>
+            <div class="E6C2">
+                 <a href="/E6C2"> <button class="btnE6C2" >E6C2</button> </a>
+            </div>
+            <div class="E6C3">
+                 <a href="/E6C3"> <button class="btnE6C3" >E6C3</button> </a>
+            </div>
+
+            </div>
+            <img class="ecolabs_mobil" src="/static/images/imgmobil2.png" alt="">
+           
+            <div class="cell E1C3_mobil">
+             <a href="/E1C3"> <button class="btnE1C3_mobil">E1C3</button> </a>
+            <div class="E1C2_mobil">
+             <a href="/E1C2"> <button class="btnE1C2_mobil" >E1C2</button> </a>
+            </div>
+            <div class="E1C1_mobil">
+             <a href="/E1C1"> <button class="btnE1C1_mobil">E1C1</button> </a>
+            </div>
+
+            <div class="E2C1_mobil">
+             <a href="/E2C1"> <button class="btnE2C1_mobil">E2C1</button> </a>
+            </div>
+            <div class="E2C2_mobil">
+             <a href="/E2C2"> <button class="btnE2C2_mobil">E2C2</button> </a>
+            </div>
+            <div class="E2C3_mobil">
+             <a href="/E2C3"> <button class="btnE2C3_mobil" >E2C3</button> </a>
+            </div>
+
+            <div class="E3C3_mobil">
+             <a href="/E3C3"> <button class="btnE3C3_mobil" >E3C3</button> </a>
+            </div>
+            <div class="E3C2_mobil">
+             <a href="/E3C2"> <button class="btnE3C2_mobil" >E3C2</button> </a>
+            </div>
+            <div class="E3C1_mobil">
+             <a href="/E3C1"> <button class="btnE3C1_mobil" >E3C1</button> </a>
+            </div>
+
+            <div class="E4C1_mobil">
+             <a href="/E4C1"> <button class="btnE4C1_mobil" >E4C1</button> </a>
+            </div>
+            <div class="E4C2_mobil">
+             <a href="/E4C2"> <button class="btnE4C2_mobil" >E4C2</button> </a>
+            </div>
+            <div class="E4C3_mobil">
+             <a href="/E4C3"> <button class="btnE4C3_mobil" >E4C3</button> </a>
+            </div>
+
+            <div class="E5C3_mobil">
+             <a href="/E5C3"> <button class="btnE5C3_mobil" >E5C3</button> </a>
+            </div>
+            <div class="E5C2_mobil">
+             <a href="/E5C2"> <button class="btnE5C2_mobil">E5C2</button> </a>
+            </div>
+            <div class="E5C1_mobil">
+             <a href="/E5C1"> <button class="btnE5C1_mobil" >E5C1</button> </a>
+            </div>
+          
+            <div class="E6C1_mobil">
+             <a href="/E6C1"> <button class="btnE6C1_mobil" >E6C1</button> </a>
+            </div>
+            <div class="E6C2_mobil">
+             <a href="/E6C1"> <button class="btnE6C2_mobil" >E6C2</button> </a>
+            </div>
+            <div class="E6C3_mobil">
+             <a href="/E6C3"> <button class="btnE6C3_mobil" >E6C3</button> </a>
+            </div>
+
+            </div>
+            {%if detail=="yes" %}
+            <div class="params" >
+               <a href="{{ url_for('adminT') }}" > <button  class="btn-close close" aria-label="Close"></button></a>
+                
+               <form action="details" method="POST" >
+                    <h1 class="titre-historique">Détail de {{ name }}<span id="nom_cellule"></span></h1>
+
+               {% if not info['params']['temperature_reprise'] %}
+               <table class="table">
+                    <tr>
+                         <td>Temperature Reprise</td>
+                         <td>Donnée non disponible</td>
+                    </tr>
+                    <tr>
+                         <td>Temperature Eau Pluie</td>
+                         <td>Donnée non disponible</td>
+                    </tr>
+                    <tr>
+                         <td>Temperature Consigne </td>
+                         <td>Donnée non disponible</td>
+                    </tr>
+               </table>
+               {% else %}
+                    
+               <table class="table">
+                    <tr>
+                         <td>Temperature Reprise</td>
+                         <td>{{ "%.1f"|format(info['params']['temperature_reprise']) }}</td>
+                    </tr>
+                    <tr>
+                         <td>Temperature Eau Pluie</td>
+                         <td>{{ "%.1f"|format(info['params']['temperature_eau_pluie']) }}</td>
+                    </tr>
+                    <tr>
+                         <td>Temperature Consigne </td>
+                         <td>{{ "%.1f"|format(info['params']['temperature_consigne'])}}</td>
+                    </tr>  
+               </table>
+
+               <button type="submit" name="name" value="{{name}}">PLUS</button>
+               {% endif %}
+                </form>
+                
+            </div>
+            {% endif %}
+            <script>
+     // Autor: Deva
+     const ecolabs = document.querySelector('.ecolabs');
+    const ecolabs_mobil = document.querySelector('.ecolabs_mobil')
+    const E1C3 = document.querySelector('#E1C3');
+    const E1C3_mobil = document.querySelector('.E1C3_mobil')
+    const E1C2 = document.querySelector('.E1C2');
+
+    const btnE1C3 = document.querySelector('.btnE1C3');
+    const btnE1C2 =document.querySelector('.btnE1C2');
+    const btnE1C1 = document.querySelector('.btnE1C1')
+
+    const E3C3 = document.querySelector('.E3C3')
+    const E5C3 = document.querySelector('.E5C3')
+    const E2C1 = document.querySelector('.E2C1')
+    const E4C1 = document.querySelector('.E2C1')
+
+
+
+    const btnE3C3 = document.querySelector('.btnE3C3')
+    const btnE3C2 = document.querySelector('.btnE3C2')
+    const btnE3C1 = document.querySelector('.btnE3C1')
+
+    const btnE5C3 = document.querySelector('.btnE5C3')
+    const btnE5C2 = document.querySelector('.btnE5C2')
+    const btnE5C1 = document.querySelector('.btnE5C1')
+
+    const btnE2C3 = document.querySelector('.btnE2C3')
+    const btnE2C2 = document.querySelector('.btnE2C2')
+    const btnE2C1 = document.querySelector('.btnE2C1')
+
+    const btnE4C3 = document.querySelector('.btnE4C3')
+    const btnE4C2 = document.querySelector('.btnE4C2')
+    const btnE4C1 = document.querySelector('.btnE4C1')
+
+    const btnE6C3 = document.querySelector('.btnE6C3')
+    const btnE6C2 = document.querySelector('.btnE6C2')
+    const btnE6C1 = document.querySelector('.btnE6C1')
+
+
+
+
+    const btnE1C3_mobil = document.querySelector('.btnE1C3_mobil');
+    const btnE1C2_mobil =document.querySelector('.btnE1C2_mobil');
+    const btnE1C1_mobil = document.querySelector('.btnE1C1_mobil')
+
+   
+    const btnE2C1_mobil = document.querySelector('.btnE2C1_mobil')
+    const btnE2C2_mobil = document.querySelector('.btnE2C2_mobil') 
+    const btnE2C3_mobil = document.querySelector('.btnE2C3_mobil')
+
+    const btnE3C3_mobil = document.querySelector('.btnE3C3_mobil')
+    const btnE3C2_mobil = document.querySelector('.btnE3C2_mobil') 
+    const btnE3C1_mobil = document.querySelector('.btnE3C1_mobil')
+
+    const btnE4C1_mobil = document.querySelector('.btnE4C1_mobil')
+    const btnE4C2_mobil = document.querySelector('.btnE4C2_mobil') 
+    const btnE4C3_mobil = document.querySelector('.btnE4C3_mobil')
+
+    const btnE5C3_mobil = document.querySelector('.btnE5C3_mobil')
+    const btnE5C2_mobil = document.querySelector('.btnE5C2_mobil') 
+    const btnE5C1_mobil = document.querySelector('.btnE5C1_mobil')
+
+    const btnE6C1_mobil = document.querySelector('.btnE6C1_mobil')
+    const btnE6C2_mobil = document.querySelector('.btnE6C2_mobil') 
+    const btnE6C3_mobil = document.querySelector('.btnE6C3_mobil')
+
+    const E2C1_mobil = document.querySelector('.E2C1_mobil')
+    const E3C3_mobil = document.querySelector('.E3C3_mobil')
+    const E4C1_mobil = document.querySelector('.E4C1_mobil')
+    const E5C3_mobil = document.querySelector('.E5C3_mobil')
+    const E6C1_mobil = document.querySelector('.E6C1_mobil')
+   
+    
+
+     btnE1C1.style.backgroundColor =  "{{ couleur[0]  }}"
+     btnE1C2.style.backgroundColor = "{{ couleur[1]  }}"
+     btnE1C3.style.backgroundColor = "{{ couleur[2]  }}"
+
+     btnE2C1.style.backgroundColor =  "{{ couleur[3]  }}"
+     btnE2C2.style.backgroundColor = "{{ couleur[4]  }}"
+     btnE2C3.style.backgroundColor = "{{ couleur[5]  }}"
+
+     btnE3C1.style.backgroundColor =  "{{ couleur[6]  }}"
+     btnE3C2.style.backgroundColor = "{{ couleur[7]  }}"
+     btnE3C3.style.backgroundColor = "{{ couleur[8]  }}"
+
+     btnE4C1.style.backgroundColor =  "{{ couleur[9]  }}"
+     btnE4C2.style.backgroundColor = "{{ couleur[10]  }}"
+     btnE4C3.style.backgroundColor = "{{ couleur[11]  }}"
+
+     btnE5C1.style.backgroundColor =  "{{ couleur[12]  }}"
+     btnE5C2.style.backgroundColor = "{{ couleur[13]  }}"
+     btnE5C3.style.backgroundColor = "{{ couleur[14]  }}"
+
+     btnE6C1.style.backgroundColor =  "{{ couleur[15]  }}"
+     btnE6C2.style.backgroundColor = "{{ couleur[16]  }}"
+     btnE6C3.style.backgroundColor = "{{ couleur[17]  }}"
+
+              </script>
+
+    <script src="/static/responsive.js"> </script>
+
+    <footer class="footer" role="contentinfo">
+     <div class="inner">
+         <div class="home__small-inner footer__content">
+             <a href="https://www.cnrs.fr/fr"><img src="/static/images/logo-footer.svg" alt="Accueil" class="logoCNRS"></a>
+             <div class="footer__child">
+                 <h3 class="footer__title">Nous suivre</h3>
+                 <ul class="footer__social">
+                     <li><a href="https://fr-fr.facebook.com/cnrs.fr/" target="_blank" class="facebook" rel="noopener noreferrer">Facebook</a></li>
+                     <li><a href="https://twitter.com/cnrs?lang=fr%20" target="_blank" class="twitter" rel="noopener noreferrer">Twitter</a></li>
+                     <li><a href="https://www.instagram.com/cnrs/" target="_blank" class="instagram" rel="noopener noreferrer">Instagram</a></li>
+                     <li><a href="https://www.youtube.com/@CNRS" target="_blank" class="youtube" rel="noopener noreferrer">Youtube</a></li>
+                 </ul>
+             </div>
+         </div>
+     </div>
+     <ul class="credits">
+         <li class="menu-item">
+             <a href="https://www.cnrs.fr/fr/accessibilite" target="_self" title="Politique d'accessibilité" data-drupal-link-system-path="node/1717" rel="noopener">Accessibilité</a>
+         </li>
+         <li class="menu-item">
+             <a href="https://www.cnrs.fr/fr/credits" title="Crédits du site" data-drupal-link-system-path="node/1685">Crédits</a>
+         </li>
+         <li class="menu-item">
+             <a href="https://www.cnrs.fr/fr/gestion-des-cookies" data-drupal-link-system-path="node/5633">Gestion des cookies</a>
+         </li>
+         <li class="menu-item">
+             <a href="https://www.cnrs.fr/fr/rgpd" target="_self" title="RGPD" data-drupal-link-system-path="node/3179" rel="noopener">Données personnelles</a>
+         </li>
+         <li class="menu-item">
+             <a href="https://www.cnrs.fr/fr/mentions-legales" data-drupal-link-system-path="node/1707">Mentions légales</a>
+         </li>
+     </ul>
+ </footer>
+</body>
+</html>

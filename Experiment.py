@@ -25,7 +25,6 @@ class Experiment(Base):
 
 
     # Relation ONE TO MANY
-   
     cells = relationship('Cells', backref='experiment') 
    
     

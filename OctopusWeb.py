@@ -12,10 +12,7 @@ pip install Flask-SQLAlchemy
 from flask import Flask, render_template, request, jsonify, url_for, redirect
 import json
 import requests
-import json
-import requests
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, render_template, request, redirect, url_for
 from Connexion import utilisateur,session, password, base_de_donne, port, Base, DB_URL
 from History import Historiy_cells
 from Experiment import Experiment
@@ -33,59 +30,225 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{utilisateur}:{passwor
 ############################################################################################################
 
 # Recovery of configuration informations
-with open('/home/luca/Bureau/ecolab/Ecolabs_test/ecolab2_api/pyResponsive/config.json', 'r') as config:
+with open('config.json', 'r') as config:
     config = json.load(config)
     ip = config['IP']
     port = config['Port']
     debug = config['Debug']
 
 ############################################################################################################
-# Auteur Luca et Deva
 
+ecolabs = {
+        "ecolab_": {
+            'Cellule_1': {
+                "name": "E2C1",
+                "fins": {
+                    "ip": "192.168.0.21",
+                    "port": 9600,
+                    "dst_net_addr": 2,
+                    "dst_node_num": 2,
+                    "dst_unit_addr": 0
+                },
+                "params": {
+                    "temperature_reprise": 0,
+                    "temperature_eau_pluie": 0,
+                    "temperature_consigne": 0
+                }
+            },
+            'Cellule_2':{
+                    "name": "E2C2",
+                    "fins": {
+                        "ip": "192.168.0.2",
+                        "port": 9600,
+                        "dst_net_addr": 1,
+                        "dst_node_num": 1,
+                        "dst_unit_addr": 0
+                    },
+                    "params": {
+                        "temperature_reprise": 0,
+                        "temperature_eau_pluie": 0,
+                        "temperature_consigne": 0
+                    }
+            },
+            'Cellule_3':{
+                    "name": "E2C3",
+                    "fins": {
+                        "ip": "192.168.0.3",
+                        "port": 9600,
+                        "dst_net_addr": 1,
+                        "dst_node_num": 1,
+                        "dst_unit_addr": 0
+                    },
+                    "params": {
+                        "temperature_reprise": 9,
+                        "temperature_eau_pluie": 0,
+                        "temperature_consigne": 0
+                    }
+            }
+        }
+    }
+
+parameters = ecolabs
+print(parameters['ecolab_']['Cellule_3']['params']['temperature_reprise'])
+colors = []
+
+############################################################################################################
+# Auteur Deva et Luca
+    
 # Basic role 
 role = "visiteur"
 
 # Web pages
 
-
-# Auteur Deva et Luca
-# Connection
-@app.route('/connexion')
-def forms():
-    return render_template('connection.html',ip=ip, port=port)
-
-
-# Auteur Luca
+# Autor : Deva et Luca
 # Index template
 @app.route('/')
 def index():
     global role
-    try:
-        # Retrieving data in Json Ecolab 2
-        ecolab2 = "http://10.119.20.100:8080/"
-        json_data2 = requests.get(ecolab2).json()
+    cells= ["E1C1","E1C2","E1C3","E2C1","E2C2","E2C3","E3C1","E3C2","E3C3","E4C1","E4C2","E4C3","E5C1","E5C2","E5C3","E6C1","E6C2","E6C3"]  
+    parameters = ecolabs
+    for i in range(len(cells)):
+        ecolab = f'ecolab_{cells[i][1]}'
+        cellule = f'Cellule_{cells[i][3]}'
 
-        # Retrieving data in Json Ecolab 4
-        ecolab4 = "http://10.119.40.100:8080/"
-        json_data4 = requests.get(ecolab4).json()
+        if  cells[i][1] == "1":
+            ecolab = "ecolab_"
+            parameters = ecolabs
+            if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                colors.append(" #f76a6a")
+            else :
+               colors.append(" #a6f76a")
+
+        if cells[i][1] == "2":
+            data = requests.get('http://10.119.20.100:8080/')
+            parameters = data.json()
+            #ecolab = "ecolab_"
+            #parameters = ecolabs
+            if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                colors.append(" #f76a6a")
+            else :
+                colors.append(" #a6f76a")
+
+        if cells[i][1] == "3":
+            ecolab = 'ecolab_'
+            parameters = ecolabs
+            if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                colors.append(" #f76a6a")
+            else :
+                colors.append(" #a6f76a")
+
+        if cells[i][1] == "4":
+            ecolab = 'ecolab_'
+            parameters = ecolabs
+            if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                colors.append(" #f76a6a")
+            else :
+                colors.append(" #a6f76a")
+
+        if cells[i][1]== "5":
+            ecolab = 'ecolab_'
+            parameters = ecolabs
+            if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                colors.append(" #f76a6a")
+            else :
+                colors.append(" #a6f76a")
+
+        if cells[i][1] == "6":
+            ecolab = 'ecolab_'
+            parameters = ecolabs
+            if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                colors.append(" #f76a6a")
+            else :
+                colors.append(" #a6f76a")
+  
+    print("Index et valeurs de colors:", list(enumerate(colors))) 
+    return render_template('index.html', info = parameters,detail="no", couleur= colors,role=role   )
+
+
+# Auteur Deva et Luca 
+# Admin Index template
+@app.route('/admin')
+def adminT():
+    global session
+    global role
+    if role == 'admin':
+        cells= ["E1C1","E1C2","E1C3","E2C1","E2C2","E2C3","E3C1","E3C2","E3C3","E4C1","E4C2","E4C3","E5C1","E5C2","E5C3","E6C1","E6C2","E6C3"]  
+        parameters = ecolabs
+        for i in range(len(cells)):
+            ecolab = f'ecolab_{cells[i][1]}'
+            cellule = f'Cellule_{cells[i][3]}'
+            name_cell = f"E{ecolab}C{cellule}"
+
+            if  cells[i][1] == "1":
+                ecolab = "ecolab_"
+                parameters = ecolabs
+                
+                if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                    colors.append(" #f76a6a")
+                    
+                else :
+                    colors.append(" #a6f76a")
+                
+
+            if cells[i][1] == "2":
+                data = requests.get('http://10.119.20.100:8080/')
+                parameters = data.json()
+                #ecolab = "ecolab_"
+                #parameters = ecolabs
+                if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                    colors.append(" #f76a6a")
+                else :
+                    colors.append(" #a6f76a")
+
+            if cells[i][1] == "3":
+                ecolab = 'ecolab_'
+                parameters = ecolabs
+                if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                    colors.append(" #f76a6a")
+                else :
+                    colors.append(" #a6f76a")
+
+            if cells[i][1] == "4":
+                ecolab = 'ecolab_'
+                parameters = ecolabs
+                if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                    colors.append(" #f76a6a")
+                else :
+                    colors.append(" #a6f76a")
+
+            if cells[i][1]== "5":
+                ecolab = 'ecolab_'
+                parameters = ecolabs
+                if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                    colors.append(" #f76a6a")
+                else :
+                    colors.append(" #a6f76a")
+
+            if cells[i][1] == "6":
+                ecolab = 'ecolab_'
+                parameters = ecolabs
+                if parameters[ecolab][cellule]['params']['temperature_reprise']<= 0:
+                    colors.append(" #f76a6a")
+                else :
+                    colors.append(" #a6f76a")
+  
+        print("Index et valeurs de colors:", list(enumerate(colors))) 
+        return render_template('adminTemplate.html', info = parameters,detail="no", couleur= colors,role=role, nom=name_cell)
     
-        return render_template('index.html', role= role, info2=json_data2, info4=json_data4)
-    except Exception as e:
-        print(f"Une erreur s'est produite : {e}")
-        return "Erreur lors de la récupération des données depuis l'API."
+    else:
+        return redirect(url_for('index'))
     
 
 # Auteur Luca et Deva
 # Détails template
-@app.route('/detail',methods=['POST'])
-def detail():
+@app.route('/details',methods=['POST'])
+def details():
     global session
     global role
     if role == 'admin':
         try:
             #I collect the name of the cell that the client clicked using the POST method.
             cellule_name =request.form.get('name')
-            #cellule_name = "E2C3"
 
             #I'm trying to get the Ecolab and Cell numbers by their names
             ecolab = cellule_name[1]
@@ -106,10 +269,9 @@ def detail():
         
             #Obtaining the Experience object using its ID
             experienceInProgress = cellule.Experiment_id
-
             #Obtaining a list of all historique of cellule using its ID
             historique = octopus.get_historique_by_id(cellule.id)
-
+            
             #Obtaining a list of all experience with satus "a venir" are "en cours"
             future_and_current_experiences = octopus.get_futur_and_current_experience()
             session.commit()
@@ -120,9 +282,60 @@ def detail():
             return render_template('error.html', error_message=str(e))
     else:
         return render_template('noAccess.html')
+
+
+#Autor : Deva et Luca
+# Case détails
+@app.route('/<cell>')
+def detail(cell):
+    global role
+    global session
+    accesible = None
+
+    if cell[1] == "1":
+        parameters = ecolabs
+
+    if cell[1] == "2":
+        data = requests.get('http://10.119.20.100:8080/')
+        parameters = data.json()
+        accesible = "yes"
+
+    if cell[1] == "3":
+        parameters = ecolabs
+
+    if cell[1] == "4":
+        data = requests.get('http://10.119.40.100:8080/')
+        parameters = data.json()
+        accesible = "yes"
+
+    if cell[1] == "5":
+        parameters = ecolabs
+
+    if cell[1] == "6":
+        parameters = ecolabs
+
+    if accesible:
+        ecolab = f'ecolab_{cell[1]}'
+    else:
+        ecolab = "ecolab_"
+
+    cellule = f"Cellule_{cell[3]}"
+    info = parameters[ecolab][cellule]
+
+    if role == 'admin':
+        return render_template('adminTemplate.html',detail="yes",info= info, couleur= colors , name = cell)
+    else:
+        return render_template('index.html',detail="yes",info= info, couleur= colors , name = cell)
     
 
 # Auteur Deva
+# Connection template
+@app.route('/connexion')
+def forms():
+    return render_template('connection.html',ip=ip, port=port)
+    
+
+# Auteur Deva et Luca
 # Experiences template
 @app.route('/experiences')
 def experiences():
@@ -137,10 +350,11 @@ def experiences():
         return render_template('noAccess.html')
 
 
-# Auteur Deva
+# Auteur Deva et Luca
 # Template to add experience
 @app.route('/add-experiences')
 def addExperience():
+    global session
     global role
     if role == 'admin':
         return render_template('addExperience.html')
@@ -161,39 +375,16 @@ def editExperiences():
 
 
 # Auteur Luca
+# Inscription template
 @app.route("/inscription")
 def inscription():
     return render_template('inscription.html')
 
 
 # Auteur Luca
-# Admin Index template
-@app.route('/admin')
-def adminT():
-    global role
-    if role == 'admin':
-        try:
-                # Retrieving data in Json Ecolab 2
-                ecolab2 = "http://10.119.20.100:8080/"
-                json_data2 = requests.get(ecolab2).json()
-
-                # Retrieving data in Json Ecolab 4
-                ecolab4 = "http://10.119.40.100:8080/"
-                json_data4 = requests.get(ecolab4).json()
-
-                return render_template('adminTemplate.html', role=role, info2=json_data2, info4=json_data4)
-        except Exception as e:
-                print(f"Une erreur s'est produite : {e}")
-                return "Erreur lors de la récupération des données depuis l'API."
-    else:
-        return redirect(url_for('index'))
-    
-
-# Auteur Luca
 # Users list template
 @app.route('/utilisateurs')
 def allUsers():
-    global session
     users = octopus.users
     return render_template('allUsers.html', users=users)
 
@@ -204,16 +395,15 @@ def allUsers():
 def editUserRole():
     id = int(request.form.get('id_user'))
 
-    #Obtaining the object of user using its ID
+    #Obtaining the object of experience using its ID
     user = octopus.get_user_by_id(id)
 
     session.commit()
     return render_template('editRole.html',user=user)
 
-    
+
 ############################################################################################################
 # Action Methods 
-    
 
 # Auteur Luca
 # Process to connecting
@@ -246,7 +436,7 @@ def traitement():
 
 
 # Auteur Deva
-# Logout process  
+# Logout process
 @app.route('/deconnexion')
 def deconnexion():
     global role
@@ -270,7 +460,7 @@ def retour():
 
 
 # Auteur Deva
-# Process to add experience
+# Process to add experience 
 @app.route('/new-experience-in-cellule', methods=['POST'])
 def new_experience_in_cellule():
     global session
@@ -379,9 +569,10 @@ def processToEditRole():
     #Obtaining the relevant object in the database
     user = octopus.get_user_by_id(id)
 
-    # edit the datas
+    #edit the datas
     # user.role=octopus.edit_role(id,nom,role)
-    user.username = nom
+
+    user.username=nom
     user.role = role
     
     session.commit()
@@ -390,4 +581,4 @@ def processToEditRole():
 
 # Start Flask server
 if __name__ == '__main__':
-    app.run(host=ip,port=5500,debug=debug,use_reloader=True)
+    app.run(host=ip,port=7000,debug=True,use_reloader=True)

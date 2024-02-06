@@ -1,285 +1,229 @@
-/* Navbar */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+.ecolabs {
+    max-width: 100%;
+}
+.ecolabs_mobil{
+    max-width: 100%;
 }
 
-/* Style pour chaque élément de la liste déroulante */
-.dropdown-content a {
-    padding: 12px 16px;
-    display: block;
-    text-decoration: none;
-    color: #333;
-    color: white;
-    font-family: 'Lemon Milk medium', sans-serif;
-}
-
-/* Changement de style lorsque la souris survole un élément de la liste */
-.dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-/* Style pour le conteneur du bouton */
-.dropdown {
+.cell {
     position: relative;
-    display: inline-block;
-    padding-top: 12px;
+}
+/* for 1980px width */
+.E1C3 {
+    position: absolute;
+    top: 126px;
+    left: 25.5%;
+    
+    width:4%;
 }
 
-/* Style pour le bouton */
-.dropbtn {
-    padding:  6px 12px;
-    font-size: 18.72px;
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
-    background-color: #0d6efd;
-    color: white;
-    margin-left:30px;
-    font-family: 'Times New Roman';
+.btnE1C3 {
+    width: 150%;
+    padding-top: 20%;
+    padding-bottom: 20%;
 }
-
-/* Changement de style lorsque la souris survole le bouton */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-nav{
-    background-color: white;
-    margin-bottom: 50px;
-    padding-bottom: 20px;
-    justify-content: space-between;
-    display: flex;
-    flex-direction: row;
-    transition: white 0.3s;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-nav.fixed {
-    position: fixed;
-    top: 0;
+.E1C2{
+    margin-left: 160%;
+    margin-top: -99%;
     width: 100%;
-    background-color: #3498db;
 }
-ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-li{
-    float: left;
-}
-li a{
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-nav a{
-    text-decoration: none;
-}
-nav #acc{
-    font-size: 20px;
-}
-li a:hover{
-    background-color: #0851be;
-}
-nav a{
-    color: #fff;
-    background-color: #0d6efd;
-    padding: 6px 12px;
-    margin: 30px;
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
-    border-color: #0d6efd;
-}
-nav a .acc{
-    text-align:center;
-}
-nav a:active{
-    border: 5px solid #3e85f0;
-}
-/* Vers le haut */
-#haut {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    /* Autres styles que vous souhaitez ajouter */
-  }
-  
-
-
-                                                                    /* COMMMUN */
-/* Zone des ecolabs */
-.lesEcolabs{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 50px 0px;
-    align-items: center;
-    min-height: 100;
-    font-family:'Lemon Milk medium', sans-serif;
+.E1C1{
+    margin-left: 160%;
+    margin-top: 8%;
+    width: 100%;
+    
    
-    padding-left: 8%;
     
 }
-.lesEcolabs > div{
-    text-align: center;
+.btnE1C1{
+    
+    
+   
 }
-@media screen and (max-width: 1400px){
-    .lesEcolabs{
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        gap: 60px;
-        /* list-style: none; */
-    }
-
-    @media screen and (max-width: 920px){
-        .lesEcolabs{
-            display: grid;
-            grid-template-columns: repeat(1,1fr);
-            gap: 60px;
-            /* list-style: none; */
-        }
-        
-    }
-}
-
-                                                    /* Zone d'un ecolab et ce qu'il y a autour */
-.ecolabZone{
-    border: 2px rgb(218, 215, 215) solid;
-    height: 700px;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    padding: 7px;
-}
-/* Zone cellules */
-.ecolab{
+.E3C3{
+    margin-left: 660%;
+    margin-top: -195%;
     width: 100%;
-    height: 450px;
-    background-color: lightblue;
 }
-/* Partie haute de l'ecolab */
-.haut, .bas{
-    display: flex;
-    flex-direction: row;
+.E3C2{
+    margin-left: 820%;
+    margin-top: -95%;
+    width: 100%;
 }
-/* Cellules */
-.cell{
-    margin: 10px;
-    width: 180px;
-    height: 180px;
-    margin-top:15px;
+.E3C1{
+    margin-left: 820%;
+    margin-top: 9%;
+    width: 100%;
 }
-/* Boutons cellules */
-.btn{
-    background-color: rgb(22, 216, 174);
-    border: 0px solid;
-    border-radius: 5px 5px 5px 5px;
+.E5C3{
+    margin-left: 1320%;
+    margin-top: -203%;
+    width: 100%;
 }
-.redBtn{
-    background-color: red;
-    border: 0px solid;
-    border-radius: 5px 5px 5px 5px;
+.E5C2{
+    margin-left: 1490%;
+    margin-top: -95%;
+    width: 100%;
 }
-.cell .redBtn:hover{
-    font-size:15px;
-    background-color: red;
+.E5C1{
+    margin-left: 1490%;
+    margin-top: 15%;
+    width: 100%;
 }
-.cell:hover{
-    width: 181px;
-    height: 181px;
+.E2C1{
+    margin-left: -5%;
+    margin-top: 310%;
+    width: 100%;
 }
-.cell .btn:hover{
-    font-size:15px;
-    background-color: rgb(11, 177, 141);
+.E2C2{
+    margin-left: -5%;
+    margin-top: 10%;
+    width: 100%;
 }
-/* Nom de l'ecolab */
-h2{
-    width: 100px;
-    background-color: rgb(8, 123, 168);
-    padding: 10px;
-    border: 2px;
-    border-radius: 5px 5px 5px 5px;
+.E2C3{
+    margin-left: 165%;
+    margin-top: -90%;
+    width: 100%;
 }
-/* Case bleu au dessus */
-.ligne1 p{
-    width: 150px;
-    height: 70px;
-    background-color: rgb(0, 106, 168);
-    margin-left: 60%;
-}
-/* 2 cases rouge au dessus */
-.ligne2{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-#r1,#r2,#r3 {
-    width: 100px;
-    height: 50px;
-    background-color: rgb(211, 70, 70);
-}
-/* Nom et case rouge en dessous */
-.ligne3{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
+.E4C1{
+    margin-left: 655%;
+    margin-top: -205%;
+    width: 100%;
 }
 
-.ligne1, .ligne2, .ligne3{
-    align-items: center;
+.E4C2{
+    margin-left: 655%;
+    margin-top: 12%;
+    width: 100%;
 }
-#inscr{
-    padding-right: 0px;
+.E4C3{
+    margin-left: 825%;
+    margin-top: -92%;
+    width: 100%;
+}
+.E6C1{
+    margin-left: 1455%;
+    margin-top: -92%;
+    width: 100%;
+}
+.E6C2{
+    margin-left: 1455%;
+    margin-top: 12%;
+    width: 100%;
+}
+.E6C3{
+    margin-left: 1455%;
+    margin-top: 12%;
+    width: 100%;
+}
+.E1C2_mobil{
+    margin-left: 400%;
+    margin-top: -215%;
+    width: 100%;
+}
+.E1C1_mobil{
+    margin-left: 400%;
+    margin-top: 49%;
+    width: 100%;
+}
+.E2C1_mobil{
+    margin-left: 2.5%;
+    margin-top: 725%;
+    width: 100%;
+}
+.E2C2_mobil{
+    margin-left: 392.5%;
+    margin-top: -220%;
+    width: 100%;
+}
+.E2C3_mobil{
+    margin-left: 392.5%;
+    margin-top: 60%;
+    width: 100%;
+}
+.E3C3_mobil{
+    margin-left: 48.5%;
+    margin-top: 1580%;
+    width: 100%;
+}
+.E3C2_mobil{
+    margin-left: 458.5%;
+    margin-top: -180%;
+    width: 100%;
+}
+.E3C1_mobil{
+    margin-left: 458.5%;
+    margin-top: 95%;
+    width: 100%;
+}
+.E4C1_mobil{
+    margin-left: 54.5%;
+    margin-top: 760%;
+    width: 100%;
+}
+.E4C2_mobil{
+    margin-left: 480.5%;
+    margin-top: -175%;
+    width: 100%;
+}
+.E4C3_mobil{
+    margin-left: 480.5%;
+    margin-top: 120%;
+    width: 100%;
+}
+.E5C3_mobil{
+    margin-left: 55.5%;
+    margin-top: 1569%;
+    width: 100%;
+}
+.E5C2_mobil{
+    margin-left: 400.5%;
+    margin-top: -175%;
+    width: 100%;
+}
+.E5C1_mobil{
+    margin-left: 400.5%;
+    margin-top: 100%;
+    width: 100%;
+}
+.E6C1_mobil{
+    margin-left: 355.5%;
+    margin-top: 855%;
+    width: 100%;
+}
+.E6C2_mobil{
+    margin-left: 355.5%;
+    margin-top: 55%;
+    width: 100%;
+}
+.E6C3_mobil{
+    margin-left: 355.5%;
+    margin-top: 55%;
+    width: 100%;
+}
+.params{
+    background-color: rgb(255, 255, 255);
+   padding-top: 2%;
+   padding-bottom: 2%;
+
+    padding-left: 5%;
+    padding-right: 5%;
+    position: absolute;
+    top: 10%;
+    left:3%;
+   
+   
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+.close{
+    margin-top: -20%;
 }
 
-                                                                            /* ECOCUBE */
 
-.ecocube{
-    border: 2px rgb(218, 215, 215) solid;
-    height: 700px;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    padding: 7px;
-    align-items: center;
-    justify-content: space-around;
-}
-.cellEcocube{
-    margin-top: 30px;
-    margin: 10px;
-}
-.btn .cellEcocube{
-    width: 500px;
-}
-.namEcocube{
-    width: 120px;
-    background-color: rgb(8, 123, 168);
-    padding: 10px;
-}
-.cellEcocube .btn:hover{
-    margin: 10px;
-    width: 220px;
-    height: 200px;
-    font-size: 15px;
-    background-color: rgb(11, 177, 141);
-
-}
-
-
-                                                    /* Cellules du bas ECOLAB 4 ET ECOLAB 2 */
-#E4C1, #E2C1{
-    padding-left: 50%;
-}
 
 
 
@@ -354,5 +298,3 @@ footer li a:hover{
     width: 220px;
     height: 220px;
 }
-
-

@@ -40,8 +40,8 @@ Base.metadata.create_all(DB_URL)
 
 
 # For create user
-# adminuser = Utilisateur(username='',role='')
-# adminuser.set_password('')
+# adminuser = User(username='admin',role='admin')
+# adminuser.set_password('UtilisateurAdmin')
 
 # UtilisateurAdmin
 
