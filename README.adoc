@@ -304,7 +304,7 @@ image::img/connexion_BDD.png[]
 Ce schéma représente les actions de pouvant être effectuées à partir de cet route, qui est l'index de base.
 ----
 
-image::Img/Index.jpg[]
+image::img/Index.jpg[]
 
 Connexion
 
@@ -312,7 +312,7 @@ Connexion
 Ce schéma représente le procéssus qui est fait lors d'une connexion d'utilisateur.
 ----
 
-image::Img/Connexion.jpg[]
+image::img/Connexion.jpg[]
 
 Admin
 
@@ -321,7 +321,7 @@ Ce schéma représente les actions de pouvant être effectuées à partir de cet
 Elle est accessible uniquement lorsque l'utilisateur connecté possède le rôle admin.
 ----
 
-image::Img/adminT.jpg[]
+image::img/adminT.jpg[]
 
 Détails
 
@@ -331,7 +331,7 @@ Lorsqu'un utilisateur clique sur une cellule à partir de l'index admin, cette r
 Cette page affiche des informations supplémentaires sur la cellule concernée.
 ----
 
-image::Img/Détails.jpg[]
+image::img/Détails.jpg[]
 
 Expériences
 
@@ -341,7 +341,7 @@ Elle redirige vers une page affichant toutes les expériences présentes dans la
 De plus, elle permet la modification d'une expérience (date, nom, état, etc.) ainsi que l'ajout d'une nouvelle expérience.
 ----
 
-image::Img/Expériences.jpg[]
+image::img/Expériences.jpg[]
 
 Utilisateurs
 
@@ -351,7 +351,7 @@ Elle redirige vers une page affichant tous les utilisateurs présents dans la ba
 De plus, elle permet la modification du rôle d'un utilisateur (par exemple, administrateur, utilisateur normal) et d'autres informations liées à leur compte.
 ----
 
-image::Img/Utilisateurs.jpg[]
+image::img/Utilisateurs.jpg[]
 
 
 
